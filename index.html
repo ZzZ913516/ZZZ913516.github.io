@@ -235,6 +235,21 @@ footer p{margin:3px 0}
 @media(max-width:560px){.music-panel{min-width:auto}.music-name{display:none}.music-links{display:none}}
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--card);border:1px solid var(--acc);color:var(--acc);padding:11px 22px;border-radius:30px;font-size:12px;font-family:var(--mono);z-index:200;opacity:0;transition:.4s;box-shadow:var(--shadow);max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* 绘梨衣背景壁纸（原创SVG） */
+#eriWall{position:fixed;right:-4vw;bottom:0;height:96vh;width:auto;max-width:60vw;pointer-events:none;z-index:-1;opacity:.2;filter:blur(.4px) saturate(1.1);transition:opacity .8s,filter .8s}
+html[data-theme="day"] #eriWall{opacity:.16;filter:blur(.6px) saturate(.95) brightness(1.12)}
+#eriWall .eri-hair{fill:#efe9f5}
+#eriWall .eri-hair-shade{fill:#cfc2e2}
+#eriWall .eri-skin{fill:#ffe4d6}
+#eriWall .eri-eye{fill:#d9243b}
+#eriWall .eri-kimono{fill:#f7f1ec}
+#eriWall .eri-collar{fill:#c8234a}
+#eriWall .eri-ribbon{fill:#e0446a}
+html[data-theme="day"] #eriWall .eri-hair{fill:#fff2f6}
+html[data-theme="day"] #eriWall .eri-hair-shade{fill:#ecd4e2}
+#eriWall .eri-glow{animation:eriGlow 6s ease-in-out infinite}
+@keyframes eriGlow{0%,100%{opacity:.5}50%{opacity:.95}}
+@media(max-width:760px){#eriWall{right:-30vw;opacity:.14}}
 </style>
 </head>
 <body>
@@ -242,6 +257,55 @@ footer p{margin:3px 0}
 <div id="skyDay" class="bg-layer"><div class="sun"></div></div>
 <canvas id="starField"></canvas><canvas id="petalField"></canvas>
 <svg class="bg-layer" style="z-index:-1" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="hill" fill="#150c26" d="M0 92 Q25 80 50 88 T100 84 L100 100 L0 100 Z"/></svg>
+
+<!-- 绘梨衣 · 大型背景壁纸（原创SVG，非官图） -->
+<svg id="eriWall" viewBox="0 0 400 640" aria-hidden="true">
+  <defs>
+    <linearGradient id="eriHairG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#faf5ff"/><stop offset="1" stop-color="#d8c9ec"/></linearGradient>
+    <radialGradient id="eriAura" cx="50%" cy="30%" r="55%"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle class="eri-glow" cx="200" cy="180" r="210" fill="url(#eriAura)"/>
+  <!-- 身后长发 -->
+  <path class="eri-hair-shade" d="M200 40 C110 55 70 140 76 250 C80 340 60 470 92 590 C120 560 108 430 116 330 C122 250 120 150 200 96 C280 150 278 250 284 330 C292 430 280 560 308 590 C340 470 320 340 324 250 C330 140 290 55 200 40 Z"/>
+  <!-- 和服身体 -->
+  <path class="eri-kimono" d="M200 320 C140 335 108 400 100 500 L96 640 L304 640 L300 500 C292 400 260 335 200 320 Z"/>
+  <path class="eri-collar" d="M200 322 L168 380 L200 440 L232 380 Z"/>
+  <path class="eri-collar" d="M200 440 L182 640 L218 640 Z" opacity=".55"/>
+  <!-- 腰封 -->
+  <path class="eri-collar" d="M112 500 L288 500 L290 540 L110 540 Z" opacity=".85"/>
+  <rect class="eri-ribbon" x="186" y="498" width="28" height="44" rx="6"/>
+  <!-- 颈部与脸 -->
+  <path class="eri-skin" d="M186 280 L186 330 Q200 344 214 330 L214 280 Z"/>
+  <ellipse class="eri-skin" cx="200" cy="215" rx="72" ry="80"/>
+  <!-- 前发刘海 -->
+  <path class="eri-hair" fill="url(#eriHairG)" d="M200 96 C138 108 116 160 120 210 C134 176 142 170 146 205 C152 172 164 166 168 202 C176 168 188 164 192 200 C196 168 204 168 208 200 C212 164 224 168 232 202 C236 166 248 172 254 205 C258 170 266 176 280 210 C284 160 262 108 200 96 Z"/>
+  <!-- 两侧垂发 -->
+  <path class="eri-hair" fill="url(#eriHairG)" d="M128 190 C104 260 100 380 122 470 C136 430 130 300 138 220 Z"/>
+  <path class="eri-hair" fill="url(#eriHairG)" d="M272 190 C296 260 300 380 278 470 C264 430 270 300 262 220 Z"/>
+  <!-- 红瞳 -->
+  <ellipse class="eri-eye" cx="172" cy="232" rx="10" ry="13"/>
+  <ellipse class="eri-eye" cx="228" cy="232" rx="10" ry="13"/>
+  <circle cx="175" cy="227" r="3.4" fill="#fff"/>
+  <circle cx="231" cy="227" r="3.4" fill="#fff"/>
+  <circle cx="172" cy="237" r="4.6" fill="#8a0f24"/>
+  <circle cx="228" cy="237" r="4.6" fill="#8a0f24"/>
+  <!-- 眉眼口 -->
+  <path d="M158 210 Q172 202 186 209" stroke="#b9a4d4" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M214 209 Q228 202 242 210" stroke="#b9a4d4" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M192 268 Q200 273 208 268" stroke="#c66" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="158" cy="254" rx="9" ry="5" fill="#ffb3c0" opacity=".5"/>
+  <ellipse cx="242" cy="254" rx="9" ry="5" fill="#ffb3c0" opacity=".5"/>
+  <!-- 发饰红缎带 -->
+  <path class="eri-ribbon" d="M262 130 L286 118 L280 142 L292 150 L268 156 Z"/>
+  <circle class="eri-ribbon" cx="266" cy="140" r="7"/>
+  <!-- 飘落的樱花点缀 -->
+  <g fill="#f6b8c8" opacity=".8">
+    <ellipse cx="92" cy="150" rx="6" ry="4" transform="rotate(-30 92 150)"/>
+    <ellipse cx="320" cy="230" rx="6" ry="4" transform="rotate(24 320 230)"/>
+    <ellipse cx="66" cy="330" rx="5" ry="3.4" transform="rotate(-14 66 330)"/>
+    <ellipse cx="336" cy="420" rx="5" ry="3.4" transform="rotate(40 336 420)"/>
+  </g>
+</svg>
 
 <div id="gate">
   <div class="gate-clock"><div class="ring"></div><div class="ring2"></div><div class="icon" id="gateIcon">🌙</div></div>
