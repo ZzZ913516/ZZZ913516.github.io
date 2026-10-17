@@ -1,341 +1,337 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark" data-bg="mist" data-realm="book">
+<html lang="zh-CN" data-theme="night">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="张耀天 · 灰雾之上 — 沈阳理工大学智能科学与技术。序列、星空、球场与书架。">
-<title>张耀天 · 灰雾之上</title>
+<title>张耀天 · 白昼与黑夜</title>
 <style>
-:root{--serif:"Georgia","Times New Roman","Songti SC","STSong",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;--mono:"Courier New",monospace}
-html[data-theme="dark"]{--bg:#130820;--bg2:#1d0f30;--bg3:#241438;--card:#1f1230;--card2:#271744;--fg:#ecdcae;--fg2:#c9b896;--muted:#9686b0;--gold:#ffcf5a;--gold-soft:#d9b45a;--gold-glow:rgba(255,207,90,.35);--violet:#b88aff;--violet-soft:#8a6cd0;--mist1:rgba(184,138,255,.10);--mist2:rgba(255,207,90,.06);--border:rgba(255,207,90,.18);--border2:rgba(184,138,255,.22);--shadow:0 10px 40px rgba(0,0,0,.5);--star:#ffcf5a}
-html[data-theme="light"]{--bg:#f1e9d6;--bg2:#e8ddc2;--bg3:#ddd0b0;--card:#fbf6ea;--card2:#f5eedd;--fg:#2a1448;--fg2:#3d2466;--muted:#7a6a98;--gold:#8a6a1f;--gold-soft:#b8862a;--gold-glow:rgba(138,106,31,.18);--violet:#6a3fb0;--violet-soft:#8a5cd0;--mist1:rgba(106,63,176,.06);--mist2:rgba(184,134,42,.05);--border:rgba(42,20,72,.16);--border2:rgba(106,63,176,.20);--shadow:0 8px 30px rgba(42,20,72,.12);--star:#8a6a1f}
+:root{--serif:"Georgia","Times New Roman","Songti SC",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;--mono:"Courier New",monospace}
+html[data-theme="night"]{--bg:#181026;--bg2:#221737;--card:#241a3a;--card2:#2d2150;--fg:#e8e4f2;--fg2:#c3b8de;--muted:#8d80b0;--acc:#ffd76a;--acc2:#9a7bd0;--acc-glow:rgba(255,215,106,.32);--soft1:rgba(154,123,208,.14);--soft2:rgba(255,215,106,.06);--border:rgba(255,215,106,.2);--border2:rgba(154,123,208,.26);--shadow:0 12px 44px rgba(0,0,0,.55);--hair:#f2f3fb;--skin:#ffdcc9;--eye:#d23a4a;--pupil:#7e1626;--blush:#ff9aa8;--dress:#f4f4fb;--dressline:#d05050;--ribbon:#e0455a;--heroTxt:#ffd76a}
+html[data-theme="day"]{--bg:#fdf3ee;--bg2:#fbe8df;--card:#fffaf4;--card2:#ffeede;--fg:#3d3448;--fg2:#5a4a6a;--muted:#9a86a8;--acc:#e86a8a;--acc2:#5ba8d8;--acc-glow:rgba(232,106,138,.25);--soft1:rgba(232,106,138,.1);--soft2:rgba(91,168,216,.1);--border:rgba(232,106,138,.28);--border2:rgba(91,168,216,.3);--shadow:0 10px 34px rgba(232,106,138,.16);--hair:#f2f3fb;--skin:#ffdcc9;--eye:#d23a4a;--pupil:#7e1626;--blush:#ffb0bc;--dress:#fff;--dressline:#e86a8a;--ribbon:#e0455a;--heroTxt:#e86a8a}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.75;overflow-x:hidden;transition:background .6s,color .6s;min-height:100vh;position:relative}
-#bgfx{position:fixed;inset:0;z-index:-3;transition:opacity .6s}
-html[data-bg="mist"] #bgfx{background:radial-gradient(ellipse 80% 60% at 50% 0%,var(--mist1),transparent 60%),radial-gradient(ellipse 60% 50% at 20% 100%,var(--mist2),transparent 55%),radial-gradient(ellipse 70% 60% at 90% 40%,var(--mist1),transparent 60%),var(--bg)}
-html[data-bg="cosmos"] #bgfx{background:radial-gradient(ellipse 90% 70% at 30% 20%,rgba(80,140,255,.18),transparent 55%),radial-gradient(ellipse 70% 60% at 80% 80%,rgba(184,138,255,.16),transparent 55%),radial-gradient(circle at 60% 50%,rgba(255,207,90,.08),transparent 40%),#0a0820}
-html[data-theme="light"][data-bg="cosmos"] #bgfx{background:radial-gradient(ellipse 90% 70% at 30% 20%,rgba(80,140,255,.16),transparent 55%),radial-gradient(ellipse 70% 60% at 80% 80%,rgba(106,63,176,.10),transparent 55%),#e8e4f0}
-html[data-bg="dusk"] #bgfx{background:radial-gradient(ellipse 100% 60% at 50% 100%,rgba(255,120,60,.25),transparent 60%),radial-gradient(ellipse 80% 50% at 20% 30%,rgba(184,80,160,.20),transparent 55%),radial-gradient(ellipse 60% 50% at 80% 60%,rgba(255,200,90,.14),transparent 55%),#1a0a1a}
-html[data-theme="light"][data-bg="dusk"] #bgfx{background:radial-gradient(ellipse 100% 60% at 50% 100%,rgba(255,140,80,.20),transparent 60%),radial-gradient(ellipse 80% 50% at 20% 30%,rgba(200,120,180,.15),transparent 55%),#f5e6e0}
-#stars{position:fixed;inset:0;z-index:-2;opacity:.55;pointer-events:none;background-image:radial-gradient(1px 1px at 12% 18%,var(--star) 50%,transparent),radial-gradient(1px 1px at 27% 64%,var(--star) 50%,transparent),radial-gradient(1px 1px at 44% 12%,var(--star) 50%,transparent),radial-gradient(1px 1px at 63% 82%,var(--star) 50%,transparent),radial-gradient(1px 1px at 78% 30%,var(--star) 50%,transparent),radial-gradient(1px 1px at 88% 68%,var(--star) 50%,transparent),radial-gradient(1.5px 1.5px at 35% 40%,var(--star) 50%,transparent),radial-gradient(1px 1px at 55% 55%,var(--star) 50%,transparent),radial-gradient(1px 1px at 8% 88%,var(--star) 50%,transparent),radial-gradient(1px 1px at 92% 8%,var(--star) 50%,transparent);animation:twinkle 6s ease-in-out infinite alternate}
-html[data-theme="light"] #stars{opacity:.22}
-@keyframes twinkle{from{opacity:.3}to{opacity:.7}}
-#coderain{position:fixed;inset:0;z-index:-1;opacity:.10;pointer-events:none}
-html[data-theme="light"] #coderain{opacity:.06}
+body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.8;overflow-x:hidden;transition:background .8s,color .8s;min-height:100vh;position:relative}
 a{color:inherit;text-decoration:none}
-/* gate */
-#gate{position:fixed;inset:0;z-index:900;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .8s,visibility .8s}
+.bg-layer{position:fixed;inset:0;pointer-events:none;transition:opacity .8s}
+#skyDay{z-index:-3;opacity:0;background:linear-gradient(180deg,#ffe9d8,#ffd4e0 40%,#cfe8f8)}
+html[data-theme="day"] #skyDay{opacity:1}
+#skyNight{z-index:-3;opacity:1;background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(154,123,208,.2),transparent 55%),radial-gradient(ellipse 70% 55% at 15% 95%,rgba(255,215,106,.07),transparent 55%),linear-gradient(180deg,#120b20,#1c1330 55%,#241838)}
+html[data-theme="day"] #skyNight{opacity:0}
+#starField{z-index:-2;opacity:1;transition:opacity .8s}
+html[data-theme="day"] #starField{opacity:0}
+#petalField{z-index:-2;opacity:0;transition:opacity .8s}
+html[data-theme="day"] #petalField{opacity:1}
+.moon{position:absolute;top:8%;right:12%;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff8e0,#ffedb0 55%,#f0d48a);box-shadow:0 0 60px rgba(255,235,170,.5),0 0 120px rgba(255,215,106,.28);opacity:0;transition:opacity .8s}
+.moon::after{content:"";position:absolute;top:18px;left:26px;width:22px;height:22px;border-radius:50%;background:rgba(240,200,120,.35);box-shadow:34px 20px 0 -4px rgba(240,200,120,.3),14px 46px 0 -7px rgba(240,200,120,.25)}
+html[data-theme="night"] .moon{opacity:1}
+.sun{position:absolute;top:7%;right:12%;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff8d8,#ffd98a 55%,#ffb46a);box-shadow:0 0 70px rgba(255,190,110,.6);opacity:0;transition:opacity .8s}
+.sun::before{content:"";position:absolute;inset:-26px;border-radius:50%;border:2px dashed rgba(255,190,110,.4);animation:sunspin 24s linear infinite}
+@keyframes sunspin{to{transform:rotate(360deg)}}
+html[data-theme="day"] .sun{opacity:1}
+#gate{position:fixed;inset:0;z-index:900;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:var(--bg);transition:opacity .9s,visibility .9s;overflow:hidden}
 #gate.gone{opacity:0;visibility:hidden;pointer-events:none}
-.gate-sigil{width:130px;height:130px;animation:gateSpin 12s linear infinite}
-.gate-sigil circle,.gate-sigil path,.gate-sigil polygon{stroke:var(--gold);fill:none;stroke-width:1}
-.gate-sigil .ring2{animation:gateSpinR 8s linear infinite;transform-origin:center;transform-box:fill-box}
-@keyframes gateSpin{to{transform:rotate(360deg)}}
-@keyframes gateSpinR{to{transform:rotate(-360deg)}}
-.gate-title{font-family:var(--serif);font-size:clamp(34px,7vw,64px);letter-spacing:6px;background:linear-gradient(180deg,var(--gold),var(--gold-soft));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px var(--gold-glow))}
-.gate-sub{color:var(--muted);font-style:italic;font-size:14px;letter-spacing:2px}
-.gate-btn{font-family:var(--serif);font-size:17px;letter-spacing:3px;padding:16px 40px;border:1px solid var(--gold);border-radius:2px;background:transparent;color:var(--gold);cursor:pointer;transition:.35s;position:relative;overflow:hidden}
-.gate-btn:hover{background:var(--gold);color:var(--bg);box-shadow:0 0 36px var(--gold-glow);letter-spacing:5px}
-.gate-hint{color:var(--muted);font-size:12px;font-family:var(--mono)}
-.gate-btn::after{content:"";position:absolute;top:50%;left:-100%;width:100%;height:1px;background:var(--bg);animation:scan 2.4s infinite}
-@keyframes scan{to{left:200%}}
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 5vw;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--border);transition:background .6s}
-.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15px;letter-spacing:1px;white-space:nowrap}
-.nav-brand b{color:var(--gold)}
-.nav-brand svg{width:20px;height:20px}
-.nav-cats{display:flex;gap:2px;align-items:center;flex-wrap:wrap}
-.cat{font-family:var(--mono);font-size:12px;color:var(--muted);padding:6px 11px;border-radius:6px;transition:.25s;cursor:pointer;border:1px solid transparent}
-.cat:hover{color:var(--gold)}
-.cat.active{color:var(--gold);background:var(--mist1);border-color:var(--border)}
-.nav-ctrl{display:flex;gap:6px;align-items:center}
-.ctrl-btn{width:32px;height:32px;border:1px solid var(--border);border-radius:50%;background:none;color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:.25s;font-size:13px;position:relative}
-.ctrl-btn:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
-.ctrl-btn svg{width:15px;height:15px;fill:currentColor}
+#gate::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,var(--soft1),transparent 55%)}
+.gate-clock{width:120px;height:120px;position:relative}
+.gate-clock .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--acc);opacity:.7}
+.gate-clock .ring2{position:absolute;inset:14px;border-radius:50%;border:1px dashed var(--acc2);animation:sunspin 16s linear infinite}
+.gate-clock .icon{position:absolute;inset:0;display:grid;place-items:center;font-size:38px}
+.gate-title{font-family:var(--serif);font-size:clamp(36px,8vw,70px);letter-spacing:6px;color:var(--heroTxt);filter:drop-shadow(0 0 26px var(--acc-glow));font-weight:700;position:relative;z-index:2}
+.gate-sub{color:var(--muted);font-size:14px;letter-spacing:3px;font-style:italic;position:relative;z-index:2}
+.gate-btn{font-family:var(--serif);font-size:16px;letter-spacing:4px;padding:16px 44px;border:1.5px solid var(--acc);border-radius:40px;background:none;color:var(--acc);cursor:pointer;transition:.35s;position:relative;z-index:2}
+.gate-btn:hover{background:var(--acc);color:var(--bg);box-shadow:0 0 40px var(--acc-glow);letter-spacing:6px}
+.gate-hint{color:var(--muted);font-size:12px;font-family:var(--mono);position:relative;z-index:2}
+.gate-mode{display:flex;gap:16px;z-index:2}
+.gate-mode button{font-family:var(--serif);font-size:14px;padding:11px 26px;border-radius:30px;border:1px solid var(--border2);background:none;color:var(--fg2);cursor:pointer;transition:.3s}
+.gate-mode button:hover{border-color:var(--acc);color:var(--acc)}
+.gate-mode button.sel{border-color:var(--acc);color:var(--acc);background:var(--soft2)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 5vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--border);transition:.6s}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15px;white-space:nowrap}
+.nav-brand b{color:var(--acc)}
+.nav-cats{display:flex;gap:2px;flex-wrap:wrap}
+.cat{font-family:var(--mono);font-size:12px;color:var(--muted);padding:6px 11px;border-radius:20px;cursor:pointer;transition:.25s;border:1px solid transparent}
+.cat:hover{color:var(--acc)}
+.cat.active{color:var(--acc);background:var(--soft1);border-color:var(--border)}
+.nav-ctrl{display:flex;gap:6px}
+.ctrl-btn{width:34px;height:34px;border:1px solid var(--border);border-radius:50%;background:none;color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:.25s}
+.ctrl-btn:hover{border-color:var(--acc);color:var(--acc);box-shadow:0 0 14px var(--acc-glow)}
+.ctrl-btn svg{width:16px;height:16px;fill:currentColor}
 @media(max-width:980px){.nav-cats{display:none}}
-/* common */
 main{display:none}
-section{padding:84px 6vw 60px;position:relative}
-.wrap{max-width:1120px;margin:0 auto}
+section{padding:88px 6vw 60px;position:relative}
+.wrap{max-width:1140px;margin:0 auto}
 .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px;flex-wrap:wrap}
-.sec-num{font-family:var(--mono);color:var(--gold);font-size:12px;letter-spacing:3px;border:1px solid var(--border);padding:3px 11px;border-radius:20px}
-.sec-title{font-family:var(--serif);font-size:clamp(24px,3.6vw,36px);font-weight:700;letter-spacing:1px}
+.sec-num{font-family:var(--mono);color:var(--acc);font-size:12px;letter-spacing:3px;border:1px solid var(--border);padding:3px 12px;border-radius:20px}
+.sec-title{font-family:var(--serif);font-size:clamp(24px,3.8vw,38px);font-weight:700}
 .sec-sub{color:var(--muted);font-size:13px;font-style:italic}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
 .reveal.in{opacity:1;transform:none}
-/* hero */
+.chip{font-size:11px;font-family:var(--mono);background:var(--soft1);border:1px solid var(--border);color:var(--fg2);padding:3px 9px;border-radius:20px}
 #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:100px}
-.hero-inner{max-width:820px}
-.hero-path{font-family:var(--mono);color:var(--violet);letter-spacing:4px;font-size:12px;margin-bottom:16px}
-.hero-name{font-family:var(--serif);font-size:clamp(46px,9vw,100px);font-weight:700;letter-spacing:6px;line-height:1;background:linear-gradient(180deg,var(--gold),var(--gold-soft));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px var(--gold-glow));margin-bottom:8px}
-.hero-tag{font-family:var(--serif);font-size:clamp(15px,2.2vw,20px);color:var(--fg2);letter-spacing:2px;margin-bottom:6px}
-.hero-desc{color:var(--muted);font-style:italic;font-size:clamp(12px,1.5vw,14px);margin-bottom:30px;letter-spacing:1px}
-.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
-.stat{border:1px solid var(--border);background:var(--card);padding:13px 18px;border-radius:8px;min-width:104px}
+.hero-inner{max-width:840px;position:relative;z-index:2}
+.hero-eyebrow{font-family:var(--mono);color:var(--acc2);letter-spacing:4px;font-size:12px;margin-bottom:16px}
+.hero-name{font-family:var(--serif);font-size:clamp(48px,10vw,110px);font-weight:700;letter-spacing:8px;line-height:1;color:var(--heroTxt);filter:drop-shadow(0 0 30px var(--acc-glow));margin-bottom:10px;transition:color .8s}
+.hero-tag{font-family:var(--serif);font-size:clamp(15px,2.2vw,21px);color:var(--fg2);letter-spacing:2px;margin-bottom:6px}
+.hero-desc{color:var(--muted);font-style:italic;font-size:clamp(12px,1.5vw,14px);margin-bottom:32px}
+.hero-stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.stat{border:1px solid var(--border);background:var(--card);padding:13px 18px;border-radius:10px;min-width:106px;box-shadow:var(--shadow);transition:.3s}
+.stat:hover{transform:translateY(-4px);border-color:var(--acc)}
 .stat .k{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:5px}
-.stat .v{font-family:var(--serif);font-size:18px;color:var(--gold);font-weight:700}
-.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:12px 24px;border-radius:3px;cursor:pointer;transition:.3s;border:1px solid;display:inline-flex;align-items:center;gap:7px}
-.btn-gold{border-color:var(--gold);color:var(--gold);background:var(--mist2)}
-.btn-gold:hover{background:var(--gold);color:var(--bg);box-shadow:0 0 22px var(--gold-glow)}
+.stat .v{font-family:var(--serif);font-size:19px;color:var(--acc);font-weight:700}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:12px 26px;border-radius:30px;cursor:pointer;transition:.3s;border:1.5px solid;display:inline-flex;align-items:center;gap:7px}
+.btn-acc{border-color:var(--acc);color:var(--acc);background:var(--soft2)}
+.btn-acc:hover{background:var(--acc);color:var(--bg);box-shadow:0 0 24px var(--acc-glow)}
 .btn-ghost{border-color:var(--border2);color:var(--fg2);background:none}
-.btn-ghost:hover{border-color:var(--violet);color:var(--violet)}
-.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:2px;animation:bob 2s infinite}
-@keyframes bob{50%{transform:translate(-50%,8px)}}
-.portal{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:36px;max-width:720px;margin-left:auto;margin-right:auto}
-.portal-card{border:1px solid var(--border);background:var(--card);padding:14px;border-radius:8px;cursor:pointer;transition:.3s;display:flex;flex-direction:column;align-items:center;gap:6px}
-.portal-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 0 18px var(--gold-glow)}
-.portal-card svg{width:24px;height:24px}
+.btn-ghost:hover{border-color:var(--acc2);color:var(--acc2)}
+.portal{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:40px;max-width:720px;margin-left:auto;margin-right:auto}
+.portal-card{border:1px solid var(--border);background:var(--card);padding:15px 10px;border-radius:12px;cursor:pointer;transition:.3s;display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:var(--shadow)}
+.portal-card:hover{border-color:var(--acc);transform:translateY(-5px);box-shadow:0 0 20px var(--acc-glow)}
+.portal-card svg{width:26px;height:26px}
 .portal-card .pc-t{font-family:var(--serif);font-size:13px;color:var(--fg)}
 .portal-card .pc-s{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:1px}
-/* about */
-.about-grid{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:start}
-@media(max-width:720px){.about-grid{grid-template-columns:1fr}}
-.avatar-box{text-align:center}
-.avatar{width:200px;height:200px;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 50% 30%,var(--card2),var(--bg2));border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 36px var(--gold-glow);transition:.4s}
-.avatar:hover{box-shadow:0 0 54px var(--gold-glow)}
-.avatar svg{width:130px;height:130px}
-.avatar-cap{font-family:var(--serif);color:var(--muted);font-size:12px;margin-top:12px;font-style:italic}
-.about-info{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:2px;animation:bob 2s infinite}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
+.about-grid{display:grid;grid-template-columns:270px 1fr;gap:38px;align-items:start}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+.photo-box{text-align:center}
+.photo{width:210px;height:210px;margin:0 auto;border-radius:50%;border:1.5px solid var(--border);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 40px var(--acc-glow);transition:.4s;background:radial-gradient(circle at 50% 32%,var(--card2),var(--bg2))}
+.photo:hover{box-shadow:0 0 60px var(--acc-glow);transform:scale(1.02)}
+.photo svg{width:150px;height:150px}
+.photo-cap{font-family:var(--serif);color:var(--muted);font-size:12px;margin-top:13px;font-style:italic}
+.about-info{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:520px){.about-info{grid-template-columns:1fr}}
-.info-item{padding:11px 15px;border-left:2px solid var(--gold);background:var(--mist1)}
+.info-item{padding:12px 16px;border-left:2px solid var(--acc);background:var(--soft1);border-radius:0 8px 8px 0}
 .info-item .k{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px}
-.info-item .v{font-family:var(--serif);font-size:15px;color:var(--fg);margin-top:2px}
-.about-bio{margin-top:20px;color:var(--fg2);font-size:14px;line-height:1.9}
-.about-bio em{color:var(--gold);font-style:normal;font-weight:700}
-/* paths */
-.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:820px){.paths{grid-template-columns:1fr}}
-.path{border:1px solid var(--border);background:linear-gradient(165deg,var(--card),var(--card2));border-radius:10px;padding:22px 20px;transition:.35s}
-.path:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:var(--shadow)}
-.path-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.path-name{font-family:var(--serif);font-size:21px;color:var(--fg)}
-.path-seq{font-family:var(--mono);font-size:11px;color:var(--gold);border:1px solid var(--border);padding:3px 9px;border-radius:20px}
-.path-desc{color:var(--muted);font-size:12px;margin-bottom:16px;font-style:italic}
-.bar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:5px}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:3px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.bar-pct{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:1px}
-.path-rituals{margin-top:14px;display:flex;flex-wrap:wrap;gap:5px}
-.ritual{font-size:11px;font-family:var(--mono);color:var(--fg2);background:var(--mist1);border:1px solid var(--border);padding:3px 8px;border-radius:4px}
-/* timeline */
-.timeline{position:relative;padding-left:38px}
-.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),var(--violet),transparent)}
+.info-item .v{font-family:var(--serif);font-size:15px;color:var(--fg);margin-top:3px}
+.about-bio{margin-top:22px;color:var(--fg2);font-size:14px;line-height:2}
+.about-bio em{color:var(--acc);font-style:normal;font-weight:700}
+.skilltree{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.skilltree{grid-template-columns:1fr}}
+.branch{border:1px solid var(--border);background:linear-gradient(165deg,var(--card),var(--card2));border-radius:14px;padding:22px 20px;transition:.35s;position:relative;overflow:hidden}
+.branch::before{content:"";position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:var(--soft1);transition:.4s}
+.branch:hover{border-color:var(--acc);transform:translateY(-6px);box-shadow:var(--shadow)}
+.branch:hover::before{transform:scale(1.4)}
+.branch-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.branch-name{font-family:var(--serif);font-size:21px;color:var(--fg)}
+.branch-lv{font-family:var(--mono);font-size:11px;color:var(--acc);border:1px solid var(--border);padding:3px 10px;border-radius:20px}
+.branch-desc{color:var(--muted);font-size:12px;margin-bottom:16px;font-style:italic}
+.bar{height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;margin-bottom:5px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:3px;transition:width 1.5s cubic-bezier(.2,.8,.2,1)}
+.bar-pct{font-family:var(--mono);font-size:10px;color:var(--acc);letter-spacing:1px}
+.branch-leaves{margin-top:14px;display:flex;flex-wrap:wrap;gap:5px}
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--acc),var(--acc2),transparent)}
 .tl-item{position:relative;margin-bottom:30px;padding-left:22px}
-.tl-item::before{content:"";position:absolute;left:-33px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--bg),0 0 13px var(--gold-glow)}
-.tl-item.now::before{background:var(--violet);box-shadow:0 0 0 4px var(--bg),0 0 14px rgba(184,138,255,.5);animation:pulse 2s infinite}
-.tl-item.future::before{background:var(--bg3);border:1px solid var(--border);box-shadow:0 0 0 4px var(--bg)}
-@keyframes pulse{50%{box-shadow:0 0 0 4px var(--bg),0 0 22px rgba(184,138,255,.8)}}
-.tl-date{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;margin-bottom:3px}
+.tl-item::before{content:"";position:absolute;left:-35px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--bg),0 0 14px var(--acc-glow)}
+.tl-item.now::before{background:var(--acc2);animation:pulse 2s infinite}
+.tl-item.future::before{background:var(--bg2);border:1px solid var(--border);box-shadow:0 0 0 4px var(--bg)}
+@keyframes pulse{50%{box-shadow:0 0 0 4px var(--bg),0 0 22px var(--acc2)}}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--acc);letter-spacing:2px;margin-bottom:3px}
 .tl-title{font-family:var(--serif);font-size:18px;color:var(--fg);margin-bottom:3px}
 .tl-desc{color:var(--muted);font-size:13px}
-.tl-tag{display:inline-block;font-size:10px;font-family:var(--mono);color:var(--violet);border:1px solid var(--border2);padding:2px 7px;border-radius:4px;margin-top:5px}
-/* realms */
-.realm-tabs{display:flex;gap:7px;margin-bottom:28px;flex-wrap:wrap}
-.realm-tab{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:9px 18px;border:1px solid var(--border);border-radius:4px;background:none;color:var(--muted);cursor:pointer;transition:.3s;display:flex;align-items:center;gap:7px}
+.tl-tag{display:inline-block;font-size:10px;font-family:var(--mono);color:var(--acc2);border:1px solid var(--border2);padding:2px 8px;border-radius:20px;margin-top:5px}
+.realm-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.realm-tab{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:9px 19px;border:1px solid var(--border);border-radius:30px;background:none;color:var(--muted);cursor:pointer;transition:.3s;display:flex;align-items:center;gap:7px}
 .realm-tab svg{width:15px;height:15px;fill:currentColor}
 .realm-tab:hover{color:var(--fg)}
-.realm-tab.active{border-color:var(--gold);color:var(--gold);background:var(--mist2);box-shadow:0 0 14px var(--gold-glow)}
+.realm-tab.active{border-color:var(--acc);color:var(--acc);background:var(--soft2);box-shadow:0 0 16px var(--acc-glow)}
 .realm-pane{display:none;animation:fadeUp .5s}
 .realm-pane.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
-.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
-.book{border:1px solid var(--border);background:linear-gradient(160deg,var(--card),var(--card2));border-radius:6px;padding:16px;transition:.35s;min-height:168px;display:flex;flex-direction:column;justify-content:space-between}
-.book:hover{transform:translateY(-5px) rotate(-1deg);border-color:var(--gold);box-shadow:var(--shadow)}
-.book-spine{width:4px;height:28px;background:var(--gold);margin-bottom:9px;border-radius:2px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:16px}
+.book{border:1px solid var(--border);background:linear-gradient(160deg,var(--card),var(--card2));border-radius:10px;padding:16px;transition:.35s;min-height:168px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.book:hover{transform:translateY(-6px) rotate(-1deg);border-color:var(--acc)}
+.book-spine{width:4px;height:28px;background:var(--acc);margin-bottom:9px;border-radius:2px}
 .book-title{font-family:var(--serif);font-size:16px;color:var(--fg);line-height:1.3}
 .book-author{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:5px}
 .book-note{font-size:11px;color:var(--fg2);margin-top:9px;font-style:italic;line-height:1.5}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
-.anime{border:1px solid var(--border2);background:linear-gradient(165deg,var(--card2),var(--card));border-radius:8px;overflow:hidden;position:relative;transition:.35s;min-height:160px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
-.anime::before{content:"";position:absolute;inset:0;z-index:0;opacity:.5;background:radial-gradient(circle at 70% 20%,var(--violet-soft),transparent 60%)}
-.anime:hover{transform:translateY(-4px) scale(1.02);border-color:var(--violet);box-shadow:0 0 22px rgba(184,138,255,.35)}
-.anime .a-tag{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:1px;position:relative;z-index:1}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:14px}
+.anime{border:1px solid var(--border2);background:linear-gradient(165deg,var(--card2),var(--card));border-radius:12px;overflow:hidden;position:relative;transition:.35s;min-height:160px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;box-shadow:var(--shadow)}
+.anime::before{content:"";position:absolute;inset:0;opacity:.4;background:radial-gradient(circle at 72% 22%,var(--acc2),transparent 60%)}
+.anime:hover{transform:translateY(-5px) scale(1.02);border-color:var(--acc2);box-shadow:0 0 24px var(--acc-glow)}
+.anime .a-tag{font-family:var(--mono);font-size:10px;color:var(--acc2);letter-spacing:1px;position:relative;z-index:1}
 .anime .a-title{font-family:var(--serif);font-size:15px;color:var(--fg);position:relative;z-index:1;line-height:1.3;margin-top:3px}
 .anime .a-line{font-size:10px;color:var(--muted);position:relative;z-index:1;margin-top:3px;font-style:italic}
-.court{border:1px solid var(--border);background:radial-gradient(circle at 50% 120%,rgba(255,207,90,.15),transparent 55%),linear-gradient(160deg,var(--card),var(--card2));border-radius:10px;padding:30px;position:relative;overflow:hidden}
-.court-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.court{border:1px solid var(--border);border-radius:14px;padding:30px;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--card),var(--card2));box-shadow:var(--shadow)}
+html[data-theme="night"] .court::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(255,150,80,.12),transparent 55%)}
+html[data-theme="day"] .court::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -20%,rgba(255,180,110,.15),transparent 55%)}
+.court-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;position:relative;z-index:1}
 @media(max-width:640px){.court-grid{grid-template-columns:1fr}}
-.court h3{font-family:var(--serif);font-size:22px;color:var(--gold);margin-bottom:9px}
+.court h3{font-family:var(--serif);font-size:22px;color:var(--acc);margin-bottom:9px}
 .court p{color:var(--fg2);font-size:13px;line-height:1.8}
 .court-stats{display:flex;gap:18px;margin-top:16px}
-.court-stat .v{font-family:var(--serif);font-size:24px;color:var(--gold)}
+.court-stat .v{font-family:var(--serif);font-size:24px;color:var(--acc)}
 .court-stat .k{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px}
 .ball-svg{width:110px;height:110px;margin:0 auto;animation:bounce 2.4s ease-in-out infinite}
-@keyframes bounce{50%{transform:translateY(-12px)}}
-/* pitfalls */
+@keyframes bounce{50%{transform:translateY(-13px)}}
+.thoughts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.thoughts{grid-template-columns:1fr}}
+.thought{border:1px solid var(--border2);background:linear-gradient(160deg,var(--card),var(--card2));border-radius:14px;padding:24px;transition:.3s;cursor:pointer;box-shadow:var(--shadow)}
+.thought:hover{border-color:var(--acc2);box-shadow:0 0 22px var(--acc-glow);transform:translateY(-3px)}
+.thought .t-tag{font-family:var(--mono);font-size:10px;color:var(--acc2);letter-spacing:2px}
+.thought .t-text{font-family:var(--serif);font-size:16px;color:var(--fg);margin-top:8px;line-height:1.7;min-height:52px}
+.thought .t-hint{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic}
+.shuffle-box{text-align:center;margin-top:24px}
+.shuffle-btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:10px 24px;border:1.5px solid var(--acc);border-radius:30px;background:none;color:var(--acc);cursor:pointer;transition:.3s}
+.shuffle-btn:hover{background:var(--acc);color:var(--bg);box-shadow:0 0 20px var(--acc-glow)}
 .pitfalls{display:flex;flex-direction:column;gap:12px}
-.pitfall{border:1px solid var(--border);background:var(--card);border-radius:8px;overflow:hidden}
+.pitfall{border:1px solid var(--border);background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 .pit-head{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.pit-head:hover{background:var(--mist1)}
+.pit-head:hover{background:var(--soft1)}
 .pit-q{font-family:var(--serif);font-size:15px;color:var(--fg)}
-.pit-ico{color:var(--gold);transition:.3s;font-size:18px}
+.pit-ico{color:var(--acc);transition:.3s;font-size:18px;font-family:var(--mono)}
 .pit-body{max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;padding:0 20px}
 .pitfall.open .pit-body{max-height:320px;padding:0 20px 16px}
 .pitfall.open .pit-ico{transform:rotate(45deg)}
 .pit-body p{color:var(--muted);font-size:13px;line-height:1.8}
-.pit-body code{font-family:var(--mono);background:var(--bg3);padding:1px 6px;border-radius:3px;color:var(--gold);font-size:12px}
-/* oracles */
-.oracles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:640px){.oracles{grid-template-columns:1fr}}
-.oracle{border:1px solid var(--border2);background:linear-gradient(160deg,var(--card),var(--card2));border-radius:10px;padding:24px;position:relative;transition:.3s;cursor:pointer}
-.oracle:hover{border-color:var(--violet);box-shadow:0 0 20px rgba(184,138,255,.25)}
-.oracle .o-tag{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:2px}
-.oracle .o-text{font-family:var(--serif);font-size:16px;color:var(--fg);margin-top:8px;line-height:1.6;min-height:50px}
-.oracle .o-hint{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic}
-.dice-box{text-align:center;margin-top:24px}
-.dice-btn{font-family:var(--mono);font-size:12px;letter-spacing:2px;padding:10px 22px;border:1px solid var(--gold);border-radius:20px;background:none;color:var(--gold);cursor:pointer;transition:.3s}
-.dice-btn:hover{background:var(--gold);color:var(--bg);box-shadow:0 0 18px var(--gold-glow)}
-/* site */
-.about-site{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pit-body code{font-family:var(--mono);background:var(--bg2);padding:1px 6px;border-radius:4px;color:var(--acc);font-size:12px}
+.about-site{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:640px){.about-site{grid-template-columns:1fr}}
-.site-card{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:22px}
-.site-card h4{font-family:var(--serif);color:var(--gold);font-size:17px;margin-bottom:10px}
+.site-card{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.site-card h4{font-family:var(--serif);color:var(--acc);font-size:17px;margin-bottom:10px}
 .site-card ul{list-style:none}
 .site-card li{font-size:13px;color:var(--fg2);padding:5px 0;padding-left:18px;position:relative}
-.site-card li::before{content:"▸";position:absolute;left:0;color:var(--gold)}
-.site-card li code{font-family:var(--mono);color:var(--gold);font-size:12px}
-/* contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:0 auto}
+.site-card li::before{content:"▸";position:absolute;left:0;color:var(--acc)}
+.site-card li code{font-family:var(--mono);color:var(--acc);font-size:12px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:0 auto}
 @media(max-width:560px){.contact-grid{grid-template-columns:1fr}}
-.contact-card{border:1px solid var(--border);background:var(--card);border-radius:10px;padding:24px;text-align:center;transition:.35s}
-.contact-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 0 22px var(--gold-glow)}
-.contact-card svg{width:32px;height:32px;margin-bottom:10px}
+.contact-card{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:26px;text-align:center;transition:.35s;box-shadow:var(--shadow)}
+.contact-card:hover{border-color:var(--acc);transform:translateY(-5px);box-shadow:0 0 26px var(--acc-glow)}
+.contact-card svg{width:34px;height:34px;margin-bottom:10px}
 .contact-card .k{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;margin-bottom:5px}
-.contact-card .v{font-family:var(--mono);font-size:14px;color:var(--gold);word-break:break-all}
+.contact-card .v{font-family:var(--mono);font-size:14px;color:var(--acc);word-break:break-all}
 .contact-quote{text-align:center;margin-top:30px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
 footer{padding:36px 6vw 28px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:11px;font-family:var(--mono);letter-spacing:1px}
 footer p{margin:3px 0}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--card);border:1px solid var(--gold);color:var(--gold);padding:11px 20px;border-radius:30px;font-size:12px;font-family:var(--mono);z-index:200;opacity:0;transition:.4s;box-shadow:0 0 20px var(--gold-glow);max-width:90vw;text-align:center}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.music-panel{position:fixed;bottom:20px;right:20px;z-index:80;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:30px;padding:8px 12px;backdrop-filter:blur(8px);box-shadow:var(--shadow)}
-.music-icon{width:30px;height:30px;display:grid;place-items:center;cursor:pointer;color:var(--gold)}
-.music-icon svg{width:16px;height:16px;fill:currentColor}
-.music-icon.play svg{animation:musicspin 3s linear infinite}
-@keyframes musicspin{to{transform:rotate(360deg)}}
-.music-bars{display:flex;gap:2px;align-items:flex-end;height:18px}
-.music-bars span{width:3px;background:var(--gold);border-radius:2px;height:4px;animation:eq 1s infinite ease-in-out}
-.music-bars span:nth-child(2){animation-delay:.15s}
-.music-bars span:nth-child(3){animation-delay:.3s}
-.music-bars span:nth-child(4){animation-delay:.45s}
+.chibi{position:fixed;bottom:26px;left:26px;z-index:70;width:110px;cursor:pointer;filter:drop-shadow(0 6px 16px rgba(0,0,0,.25));transition:filter .3s}
+.chibi:hover{filter:drop-shadow(0 6px 24px var(--acc-glow))}
+.chibi-svg{width:100%;height:auto;display:block}
+.chibi.breathe .chibi-body{animation:breathe 3s ease-in-out infinite;transform-origin:60px 120px;transform-box:view-box}
+@keyframes breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.02) translateY(-1px)}}
+.chibi.jump{animation:jump .6s cubic-bezier(.3,1.4,.4,1)}
+@keyframes jump{0%{transform:translateY(0)}40%{transform:translateY(-34px)}60%{transform:translateY(-34px)}100%{transform:translateY(0)}}
+.chibi .pupils{transition:transform .12s ease-out}
+.chibi-say{position:fixed;z-index:75;bottom:150px;left:30px;max-width:200px;background:var(--card);border:1px solid var(--acc);border-radius:14px 14px 14px 2px;padding:10px 14px;font-size:12px;color:var(--fg2);font-family:var(--serif);opacity:0;transform:translateY(10px);transition:.4s;box-shadow:var(--shadow);pointer-events:none}
+.chibi-say.show{opacity:1;transform:translateY(0)}
+@media(max-width:640px){.chibi{width:84px;bottom:16px;left:16px}.chibi-say{left:16px}}
+#fx{position:fixed;inset:0;z-index:120;pointer-events:none}
+.music-panel{position:fixed;bottom:20px;right:20px;z-index:80;display:none;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px 14px;backdrop-filter:blur(10px);box-shadow:var(--shadow);min-width:190px}
+.music-top{display:flex;align-items:center;gap:8px}
+.music-icon{width:32px;height:32px;display:grid;place-items:center;cursor:pointer;color:var(--acc);flex-shrink:0}
+.music-icon svg{width:17px;height:17px;fill:currentColor}
+.music-icon.play svg{animation:eqspin 3s linear infinite}
+@keyframes eqspin{to{transform:rotate(360deg)}}
+.music-bars{display:flex;gap:2px;align-items:flex-end;height:18px;flex-shrink:0}
+.music-bars span{width:3px;background:var(--acc);border-radius:2px;height:4px;animation:eq 1s infinite ease-in-out}
+.music-bars span:nth-child(2){animation-delay:.15s}.music-bars span:nth-child(3){animation-delay:.3s}.music-bars span:nth-child(4){animation-delay:.45s}
 @keyframes eq{0%,100%{height:4px}50%{height:16px}}
-.music-vol{width:60px;height:3px;background:var(--bg3);border-radius:2px;cursor:pointer;position:relative}
-.music-vol i{display:block;height:100%;background:var(--gold);border-radius:2px;width:45%}
-.music-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px}
-@media(max-width:560px){.music-label{display:none}.music-vol{display:none}}
+.music-vol{flex:1;height:3px;background:var(--bg2);border-radius:2px;cursor:pointer;min-width:50px}
+.music-vol i{display:block;height:100%;background:var(--acc);border-radius:2px;width:40%}
+.music-name{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px;line-height:1.4}
+.music-name b{color:var(--fg);display:block;font-weight:600}
+.music-link{display:inline-block;margin-top:2px;font-family:var(--mono);font-size:10px;color:var(--acc2);border:1px solid var(--border2);padding:3px 9px;border-radius:20px;transition:.25s}
+.music-link:hover{border-color:var(--acc);color:var(--acc)}
+.music-links{display:flex;gap:6px}
+@media(max-width:560px){.music-panel{min-width:auto}.music-name{display:none}.music-links{display:none}}
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--card);border:1px solid var(--acc);color:var(--acc);padding:11px 22px;border-radius:30px;font-size:12px;font-family:var(--mono);z-index:200;opacity:0;transition:.4s;box-shadow:var(--shadow);max-width:88vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
-<div id="bgfx"></div>
-<div id="stars"></div>
-<canvas id="coderain"></canvas>
+<div id="skyNight" class="bg-layer"><div class="moon"></div></div>
+<div id="skyDay" class="bg-layer"><div class="sun"></div></div>
+<canvas id="starField"></canvas><canvas id="petalField"></canvas>
+<svg class="bg-layer" style="z-index:-1" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="hill" fill="#150c26" d="M0 92 Q25 80 50 88 T100 84 L100 100 L0 100 Z"/></svg>
 
 <div id="gate">
-  <svg class="gate-sigil" viewBox="0 0 130 130">
-    <circle cx="65" cy="65" r="58"/><circle cx="65" cy="65" r="44"/><circle cx="65" cy="65" r="28"/><circle cx="65" cy="65" r="12"/>
-    <polygon points="65,7 75,55 123,65 75,75 65,123 55,75 7,65 55,55"/>
-    <g class="ring2"><circle cx="65" cy="65" r="36" stroke-dasharray="4 6"/></g>
-    <path d="M65 7V123 M7 65H123 M22 22L108 108 M108 22L22 108" opacity=".4"/>
-  </svg>
+  <div class="gate-clock"><div class="ring"></div><div class="ring2"></div><div class="icon" id="gateIcon">🌙</div></div>
   <h1 class="gate-title">张耀天</h1>
-  <p class="gate-sub">序列 9 · 灰雾之上 · 沈阳理工大学</p>
-  <button class="gate-btn" id="enterBtn">推开灰雾之门 →</button>
-  <p class="gate-hint">进入后将响起巴拉莱卡（俄罗斯三角琴）拨弦 · 可随时关闭</p>
+  <p class="gate-sub">白昼与黑夜 · 篮球与星空 · 书架与巴拉莱卡</p>
+  <div class="gate-mode"><button id="modeDay">☀️ 白昼</button><button id="modeNight" class="sel">🌙 黑夜</button></div>
+  <button class="gate-btn" id="enterBtn">进入我的世界 →</button>
+  <p class="gate-hint">进入后将响起巴拉莱卡 · 点击页面有惊喜 · 左下有个小人</p>
 </div>
 
-<nav id="nav">
-  <div class="nav-brand"><svg viewBox="0 0 24 24"><path d="M12 2L14 9L21 9L15.5 13.5L17.5 21L12 16.5L6.5 21L8.5 13.5L3 9L10 9Z" fill="var(--gold)"/></svg><span>张耀天 · <b>灰雾之上</b></span></div>
-  <div class="nav-cats">
-    <span class="cat" data-go="hero">序章</span><span class="cat" data-go="about">档案</span><span class="cat" data-go="skills">序列</span><span class="cat" data-go="journey">晋升</span><span class="cat" data-go="realms">三界</span><span class="cat" data-go="pitfalls">踩坑</span><span class="cat" data-go="oracles">灵感</span><span class="cat" data-go="site">本站</span><span class="cat" data-go="contact">投影</span>
-  </div>
-  <div class="nav-ctrl">
-    <button class="ctrl-btn" id="bgBtn" title="切换背景"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3m0 14v3m10-10h-3M5 12H2m15.5-7.5l-2 2m-7 7l-2 2m11.5 0l-2-2m-7-7l-2-2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button>
-    <button class="ctrl-btn" id="themeBtn" title="切换昼夜"><svg id="iconMoon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg id="iconSun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3m10-10h-3M5 12H2m15.5-6.5l-2 2m-7 7l-2 2m11.5 0l-2-2m-7-7l-2-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
-  </div>
+<nav>
+  <div class="nav-brand"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2L14 9L21 9L15.5 13.5L17.5 21L12 16.5L6.5 21L8.5 13.5L3 9L10 9Z" fill="var(--acc)"/></svg><span>张耀天 · <b>白昼与黑夜</b></span></div>
+  <div class="nav-cats"><span class="cat" data-go="hero">序章</span><span class="cat" data-go="about">关于</span><span class="cat" data-go="skills">技能树</span><span class="cat" data-go="journey">足迹</span><span class="cat" data-go="realms">爱好</span><span class="cat" data-go="thoughts">想法</span><span class="cat" data-go="pitfalls">踩坑</span><span class="cat" data-go="site">本站</span><span class="cat" data-go="contact">联系</span></div>
+  <div class="nav-ctrl"><button class="ctrl-btn" id="dayNightBtn" title="切换白昼/黑夜"><svg id="icMoon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg id="icSun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3m10-10h-3M5 12H2m15.5-6.5l-2 2m-7 7l-2 2m11.5 0l-2-2m-7-7l-2-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button></div>
 </nav>
 
 <main id="main">
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-path">PATHWAY · 智能科学与技术 · 沈阳理工大学</div>
-    <h1 class="hero-name">张耀天</h1>
-    <div class="hero-tag">序列 9 · 灰雾之上的初学者</div>
-    <p class="hero-desc">白天写代码，夜晚读诡秘；球场是热血，书架是深海，星空是远方。</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="k">SEQUENCE</div><div class="v" data-count="9">0</div></div>
-      <div class="stat"><div class="k">PATHWAYS</div><div class="v" data-count="3">0</div></div>
-      <div class="stat"><div class="k">REALMS</div><div class="v" data-count="3">0</div></div>
-      <div class="stat"><div class="k">YEAR</div><div class="v" data-count="1">0</div></div>
-      <div class="stat"><div class="k">DEPENDENCIES</div><div class="v" data-count="0">0</div></div>
-    </div>
-    <div class="hero-cta">
-      <a href="#about" class="btn btn-gold">展开档案 ↓</a>
-      <a href="#realms" class="btn btn-ghost">进入三界</a>
-    </div>
-    <div class="portal">
-      <div class="portal-card" data-go="about"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><div class="pc-t">持锚者档案</div><div class="pc-s">01 · ABOUT</div></div>
-      <div class="portal-card" data-go="skills"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg><div class="pc-t">途径序列</div><div class="pc-s">02 · SKILLS</div></div>
-      <div class="portal-card" data-go="journey"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M12 7v3M12 14v3"/></svg><div class="pc-t">晋升仪式</div><div class="pc-s">03 · JOURNEY</div></div>
-      <div class="portal-card" data-go="realms"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg><div class="pc-t">三界</div><div class="pc-s">04 · REALMS</div></div>
-      <div class="portal-card" data-go="pitfalls"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L2 22h20z"/><path d="M12 9v5M12 17h.01"/></svg><div class="pc-t">踩坑记录</div><div class="pc-s">05 · PIT</div></div>
-      <div class="portal-card" data-go="oracles"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 2 1 3 1 5 0 2-1 3-1 5h14c0-2-1-3-1-5 0-2 1-3 1-5a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg><div class="pc-t">灵感箴言</div><div class="pc-s">06 · IDEA</div></div>
-    </div>
+<section id="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">沈阳理工大学 · 智能科学与技术 · 大一</div>
+  <h1 class="hero-name">张耀天</h1>
+  <div class="hero-tag">白昼与黑夜之间的少年</div>
+  <p class="hero-desc">白天在球场追风，夜晚在星空下读小说；篮球是热血，二次元是另一个宇宙。</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="k">年级</div><div class="v" data-count="1">0</div></div>
+    <div class="stat"><div class="k">技能语言</div><div class="v" data-count="3">0</div></div>
+    <div class="stat"><div class="k">爱好世界</div><div class="v" data-count="3">0</div></div>
+    <div class="stat"><div class="k">外部依赖</div><div class="v" data-count="0">0</div></div>
+    <div class="stat"><div class="k">昼夜模式</div><div class="v" data-count="2">0</div></div>
   </div>
-  <div class="scroll-hint">向下 · 灰雾之下</div>
-</section>
+  <div class="hero-cta"><a href="#about" class="btn btn-acc">认识我 ↓</a><a href="#realms" class="btn btn-ghost">进入爱好世界</a></div>
+  <div class="portal">
+    <div class="portal-card" data-go="about"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><div class="pc-t">关于我</div><div class="pc-s">01 · ABOUT</div></div>
+    <div class="portal-card" data-go="skills"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M12 3v18M5 10c2 0 7 2 7 5M19 10c-2 0-7 2-7 5"/></svg><div class="pc-t">技能树</div><div class="pc-s">02 · SKILLS</div></div>
+    <div class="portal-card" data-go="journey"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/><path d="M12 7v3M12 14v3"/></svg><div class="pc-t">成长足迹</div><div class="pc-s">03 · JOURNEY</div></div>
+    <div class="portal-card" data-go="realms"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg><div class="pc-t">爱好世界</div><div class="pc-s">04 · REALM</div></div>
+    <div class="portal-card" data-go="thoughts"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 2 1 3 1 5 0 2-1 3-1 5h14c0-2-1-3-1-5 0-2 1-3 1-5a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg><div class="pc-t">想法碎片</div><div class="pc-s">05 · IDEA</div></div>
+    <div class="portal-card" data-go="pitfalls"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><path d="M12 2L2 22h20z"/><path d="M12 9v5M12 17h.01"/></svg><div class="pc-t">踩坑记录</div><div class="pc-s">06 · PIT</div></div>
+  </div>
+</div><div class="scroll-hint">向下 · 继续探索</div></section>
 
 <section id="about" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">持锚者档案</h2><span class="sec-sub">— who holds the anchor</span></div>
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">关于我</h2><span class="sec-sub">— a little about me</span></div>
   <div class="about-grid">
-    <div class="avatar-box">
-      <div class="avatar" id="avatar" title="轻触头像，收一句低语"><svg viewBox="0 0 140 140"><defs><radialGradient id="hood" cx="50%" cy="35%"><stop offset="0%" stop-color="#3a2156"/><stop offset="100%" stop-color="#150826"/></radialGradient></defs><path d="M70 18C40 18 28 44 28 72C28 100 46 124 70 124C94 124 112 100 112 72C112 44 100 18 70 18Z" fill="url(#hood)" stroke="var(--gold)" stroke-width="1.2"/><path d="M70 26C48 26 38 48 38 72C38 92 52 112 70 112C88 112 102 92 102 72C102 48 92 26 70 26Z" fill="#0a0414" opacity=".85"/><circle cx="58" cy="68" r="3.5" fill="var(--gold)"><animate attributeName="opacity" values="1;.3;1" dur="3s" repeatCount="indefinite"/></circle><circle cx="82" cy="68" r="3.5" fill="var(--gold)"><animate attributeName="opacity" values="1;.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle><path d="M70 20L72 8L74 20" stroke="var(--gold)" stroke-width="1" fill="none"/><path d="M30 50L20 46M110 50L120 46M30 90L18 96M110 90L122 96" stroke="var(--violet)" stroke-width="1" opacity=".5"/></svg></div>
-      <div class="avatar-cap">— 灰雾中的持锚者 —</div>
-    </div>
+    <div class="photo-box"><div class="photo" id="photo" title="轻触我，说一句"><svg viewBox="0 0 120 140"><ellipse cx="60" cy="132" rx="24" ry="5" fill="rgba(0,0,0,.12)"/><path d="M40 80 Q34 112 40 128 L80 128 Q86 112 80 80 Q70 74 60 74 Q50 74 40 80Z" fill="var(--dress)" stroke="var(--dressline)" stroke-width="1.5"/><rect x="40" y="96" width="40" height="7" rx="3" fill="var(--dressline)" opacity=".9"/><circle cx="37" cy="90" r="4.5" fill="var(--skin)"/><circle cx="83" cy="90" r="4.5" fill="var(--skin)"/><circle cx="60" cy="46" r="27" fill="var(--skin)"/><path d="M33 46 Q29 20 60 18 Q91 20 87 46 L85 66 Q85 70 82 70 L82 48 Q82 33 60 31 Q38 33 38 48 L38 70 Q35 70 35 66Z" fill="var(--hair)"/><path d="M28 50 Q25 84 30 98 L36 96 Q31 78 33 54Z" fill="var(--hair)"/><path d="M92 50 Q95 84 90 98 L84 96 Q89 78 87 54Z" fill="var(--hair)"/><ellipse cx="50" cy="50" rx="5" ry="6.5" fill="var(--eye)"/><ellipse cx="70" cy="50" rx="5" ry="6.5" fill="var(--eye)"/><circle cx="51.5" cy="48" r="1.8" fill="#fff"/><circle cx="71.5" cy="48" r="1.8" fill="#fff"/><circle cx="50" cy="52" r="2.4" fill="var(--pupil)"/><circle cx="70" cy="52" r="2.4" fill="var(--pupil)"/><ellipse cx="44" cy="59" rx="4" ry="2.3" fill="var(--blush)" opacity=".7"/><ellipse cx="76" cy="59" rx="4" ry="2.3" fill="var(--blush)" opacity=".7"/><path d="M55 61 Q60 64.5 65 61" stroke="var(--eye)" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M50 18 L46 8 L54 13 Z M70 18 L74 8 L66 13 Z" fill="var(--ribbon)"/><circle cx="60" cy="14" r="3.5" fill="var(--ribbon)"/></svg></div><div class="photo-cap">— 白昼与黑夜的守望者 —</div></div>
     <div>
       <div class="about-info">
-        <div class="info-item"><div class="k">TRUE NAME</div><div class="v">张耀天</div></div>
-        <div class="info-item"><div class="k">PATHWAY</div><div class="v">智能科学与技术</div></div>
-        <div class="info-item"><div class="k">SEQUENCE</div><div class="v">9 · 学徒</div></div>
-        <div class="info-item"><div class="k">ANCHOR</div><div class="v">沈阳理工大学·大一</div></div>
-        <div class="info-item"><div class="k">DISPOSITION</div><div class="v">外向 · 好相处</div></div>
-        <div class="info-item"><div class="k">SPIRITUALITY</div><div class="v">C / Python / C++</div></div>
+        <div class="info-item"><div class="k">姓名</div><div class="v">张耀天</div></div>
+        <div class="info-item"><div class="k">专业</div><div class="v">智能科学与技术</div></div>
+        <div class="info-item"><div class="k">学校</div><div class="v">沈阳理工大学</div></div>
+        <div class="info-item"><div class="k">年级</div><div class="v">大一 · 2026级</div></div>
+        <div class="info-item"><div class="k">性格</div><div class="v">外向 · 好相处</div></div>
+        <div class="info-item"><div class="k">技能</div><div class="v">C / Python / C++</div></div>
       </div>
-      <p class="about-bio">沈阳理工大学大一新生，走在<em>智能科学与技术</em>的途径上。性格外向，自认是个好相处的人；骨子里住着一个资深二次元，白天在球场挥汗，夜晚在书架与番剧间潜入深海。掌握 C 与 Python 基础，刚触到 C++ 的边缘——序列尚浅，晋升不止。<em>喜欢的东西会认真玩，正在做的事都摆在这里。</em></p>
+      <p class="about-bio">沈阳理工大学大一新生，走在<em>智能科学与技术</em>的路上。性格外向，自认是个好相处的人；骨子里住着一个资深二次元——白天在球场挥汗，夜晚在书架与番剧间潜入深海。掌握 C 与 Python 基础，刚触到 C++ 的边缘。<em>喜欢的东西会认真玩，正在做的事都摆在这里。</em></p>
     </div>
   </div>
 </div></section>
 
 <section id="skills" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">途径序列</h2><span class="sec-sub">— the pathways I walk</span></div>
-  <div class="paths">
-    <div class="path"><div class="path-head"><span class="path-name">C 语言</span><span class="path-seq">SEQ·7</span></div><div class="path-desc">— 第一途径，已具雏形</div><div class="bar"><i data-w="62"></i></div><div class="bar-pct">非凡特性浓度 · 62%</div><div class="path-rituals"><span class="ritual">变量/循环</span><span class="ritual">数组</span><span class="ritual">函数</span><span class="ritual">指针·初探</span><span class="ritual">结构体</span></div></div>
-    <div class="path"><div class="path-head"><span class="path-name">Python</span><span class="path-seq">SEQ·8</span></div><div class="path-desc">— 第二途径，灵性流动</div><div class="bar"><i data-w="48"></i></div><div class="bar-pct">非凡特性浓度 · 48%</div><div class="path-rituals"><span class="ritual">语法基础</span><span class="ritual">数据类型</span><span class="ritual">流程控制</span><span class="ritual">函数</span><span class="ritual">模块·初探</span></div></div>
-    <div class="path"><div class="path-head"><span class="path-name">C++</span><span class="path-seq">SEQ·9</span></div><div class="path-desc">— 第三途径，初启仪式</div><div class="bar"><i data-w="22"></i></div><div class="bar-pct">非凡特性浓度 · 22%</div><div class="path-rituals"><span class="ritual">cin/cout</span><span class="ritual">string</span><span class="ritual">vector·初探</span><span class="ritual">类·未启</span></div></div>
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">技能树</h2><span class="sec-sub">— the branches I grow</span></div>
+  <div class="skilltree">
+    <div class="branch"><div class="branch-head"><span class="branch-name">C 语言</span><span class="branch-lv">LV·7</span></div><div class="branch-desc">— 第一条枝，已开叶</div><div class="bar"><i data-w="62"></i></div><div class="bar-pct">成长度 · 62%</div><div class="branch-leaves"><span class="chip">变量/循环</span><span class="chip">数组</span><span class="chip">函数</span><span class="chip">指针·初探</span><span class="chip">结构体</span></div></div>
+    <div class="branch"><div class="branch-head"><span class="branch-name">Python</span><span class="branch-lv">LV·6</span></div><div class="branch-desc">— 第二条枝，抽新芽</div><div class="bar"><i data-w="48"></i></div><div class="bar-pct">成长度 · 48%</div><div class="branch-leaves"><span class="chip">语法基础</span><span class="chip">数据类型</span><span class="chip">流程控制</span><span class="chip">函数</span><span class="chip">模块·初探</span></div></div>
+    <div class="branch"><div class="branch-head"><span class="branch-name">C++</span><span class="branch-lv">LV·2</span></div><div class="branch-desc">— 第三条枝，刚破土</div><div class="bar"><i data-w="22"></i></div><div class="bar-pct">成长度 · 22%</div><div class="branch-leaves"><span class="chip">cin/cout</span><span class="chip">string</span><span class="chip">vector·初探</span><span class="chip">类·待启</span></div></div>
   </div>
 </div></section>
 
 <section id="journey" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">晋升仪式</h2><span class="sec-sub">— rituals of ascension</span></div>
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">成长足迹</h2><span class="sec-sub">— footprints along the way</span></div>
   <div class="timeline">
-    <div class="tl-item"><div class="tl-date">2026 · 09</div><div class="tl-title">入学沈阳理工大学</div><div class="tl-desc">踏入智能科学与技术途径，完成序列 9 的入门仪式，成为正式学徒。</div><span class="tl-tag">仪式·启程</span></div>
-    <div class="tl-item now"><div class="tl-date">2026 · 进行中</div><div class="tl-title">C 与 Python 的双途径并行</div><div class="tl-desc">在基础途径上稳步推进，C 打地基，Python 养灵性，正于课业与刷题间积累非凡特性。</div><span class="tl-tag">当前节点</span></div>
-    <div class="tl-item"><div class="tl-date">下一步</div><div class="tl-title">C++ 与算法的仪式准备</div><div class="tl-desc">触探 C++ 边界，开启算法专题，为下一次晋升序列 8 做铺垫。</div><span class="tl-tag">筹备中</span></div>
-    <div class="tl-item future"><div class="tl-date">未来 · 灰雾深处</div><div class="tl-title">做自己的项目</div><div class="tl-desc">用所学搭一个真正属于自己的东西——无论是游戏、工具还是小实验，都是序列 7 的信物。</div><span class="tl-tag">远·待启</span></div>
+    <div class="tl-item"><div class="tl-date">2026 · 09</div><div class="tl-title">入学沈阳理工大学</div><div class="tl-desc">踏入智能科学与技术专业，开始了白昼与黑夜交替的大学生活。</div><span class="tl-tag">启程</span></div>
+    <div class="tl-item now"><div class="tl-date">2026 · 进行中</div><div class="tl-title">C 与 Python 双线并行</div><div class="tl-desc">C 打地基，Python 养手感，在课业与刷题之间慢慢积累。</div><span class="tl-tag">当前节点</span></div>
+    <div class="tl-item"><div class="tl-date">下一步</div><div class="tl-title">C++ 与算法的准备</div><div class="tl-desc">触探 C++ 边界，开启算法专题，为下一段旅程铺路。</div><span class="tl-tag">筹备中</span></div>
+    <div class="tl-item future"><div class="tl-date">未来 · 远方</div><div class="tl-title">做自己的项目</div><div class="tl-desc">用所学搭一个真正属于自己的东西——游戏、工具，或一个小实验。</div><span class="tl-tag">待启</span></div>
   </div>
 </div></section>
 
 <section id="realms" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">三界</h2><span class="sec-sub">— three realms of the self</span></div>
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">爱好世界</h2><span class="sec-sub">— my little worlds</span></div>
   <div class="realm-tabs">
-    <button class="realm-tab active" data-realm="book"><svg viewBox="0 0 24 24"><path d="M4 4h7v16H4zM13 4h7v16h-7z" fill="currentColor" opacity=".3"/><path d="M4 4h7v16H4zM13 4h7v16h-7z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>界·书架</button>
-    <button class="realm-tab" data-realm="anime"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="16" cy="10" r="1.5" fill="currentColor"/><path d="M9 15h6" stroke="currentColor" stroke-width="1.5"/></svg>界·二次元</button>
-    <button class="realm-tab" data-realm="court"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3v18M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1" opacity=".6"/></svg>界·球场</button>
+    <button class="realm-tab active" data-realm="book"><svg viewBox="0 0 24 24"><path d="M4 4h7v16H4zM13 4h7v16h-7z" fill="currentColor" opacity=".3"/><path d="M4 4h7v16H4zM13 4h7v16h-7z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>书架</button>
+    <button class="realm-tab" data-realm="anime"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="16" cy="10" r="1.5" fill="currentColor"/><path d="M9 15h6" stroke="currentColor" stroke-width="1.5"/></svg>二次元</button>
+    <button class="realm-tab" data-realm="court"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3v18M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1" opacity=".6"/></svg>球场</button>
   </div>
   <div class="realm-pane active" data-pane="book"><div class="shelf">
-    <div class="book"><div><div class="book-spine"></div><div class="book-title">诡秘之主</div><div class="book-author">爱潜水的乌贼</div></div><div class="book-note">序列、途径、灰雾之上的神——本站灵感源。</div></div>
-    <div class="book"><div><div class="book-spine" style="background:var(--violet)"></div><div class="book-title">龙族</div><div class="book-author">江南</div></div><div class="book-note">热血、黄昏与龙，少年心气的那一口。</div></div>
+    <div class="book"><div><div class="book-spine"></div><div class="book-title">龙族</div><div class="book-author">江南</div></div><div class="book-note">绘梨衣的故乡，热血、黄昏与少年心气。</div></div>
+    <div class="book"><div><div class="book-spine" style="background:var(--acc2)"></div><div class="book-title">诡秘之主</div><div class="book-author">爱潜水的乌贼</div></div><div class="book-note">序列、途径，灰雾之上的神。</div></div>
     <div class="book"><div><div class="book-spine"></div><div class="book-title">道诡异仙</div><div class="book-author">狐尾的笔</div></div><div class="book-note">诡异流仙侠，现实与虚妄间反复失锚。</div></div>
-    <div class="book"><div><div class="book-spine" style="background:var(--violet)"></div><div class="book-title">神秘复苏</div><div class="book-author">灵异·网文</div></div><div class="book-note">诡秘复苏的恐惧与规则。</div></div>
-    <div class="book"><div><div class="book-spine"></div><div class="book-title">孤星环绕</div><div class="book-author">科幻·环带</div></div><div class="book-note">孤独的星与环绕的轨，冷峻又辽阔。</div></div>
+    <div class="book"><div><div class="book-spine" style="background:var(--acc2)"></div><div class="book-title">神秘复苏</div><div class="book-author">灵异·网文</div></div><div class="book-note">诡秘复苏的恐惧与规则。</div></div>
+    <div class="book"><div><div class="book-spine"></div><div class="book-title">孤星环绕</div><div class="book-author">科幻·环带</div></div><div class="book-note">孤独的星与环绕的轨，冷峻辽阔。</div></div>
     <div class="book" style="border-style:dashed;justify-content:center;text-align:center"><div><div class="book-spine" style="background:var(--muted);opacity:.5"></div><div class="book-title" style="color:var(--muted)">书架持续更新…</div><div class="book-author">— 待补充 —</div></div></div>
   </div></div>
   <div class="realm-pane" data-pane="anime"><div class="cards">
@@ -346,154 +342,156 @@ footer p{margin:3px 0}
     <div class="anime" style="border-style:dashed;justify-content:center"><span class="a-tag" style="color:var(--muted)">— 待补 —</span><div class="a-title" style="color:var(--muted)">追番持续更新…</div></div>
   </div></div>
   <div class="realm-pane" data-pane="court"><div class="court"><div class="court-grid">
-    <div>
-      <h3>球场即战场</h3>
-      <p>白天脱下兜帽，换上球衣——篮球是我另一条途径。手感、节奏、对抗，每一次出手都是一次小型的晋升仪式。</p>
-      <p>看得多，打得野，热爱无需解释。</p>
-      <div class="court-stats"><div class="court-stat"><div class="v">∞</div><div class="k">热爱</div></div><div class="court-stat"><div class="v">野球</div><div class="k">POSITION</div></div><div class="court-stat"><div class="v">NBA</div><div class="k">WATCH</div></div></div>
-    </div>
+    <div><h3>球场即战场</h3><p>白天卸下书包，换上球衣——篮球是我的另一个世界。手感、节奏、对抗，每一次出手都像一次小小的胜利。</p><p>看得多，打得野，热爱无需解释。</p><div class="court-stats"><div class="court-stat"><div class="v">∞</div><div class="k">热爱</div></div><div class="court-stat"><div class="v">野球</div><div class="k">位置</div></div><div class="court-stat"><div class="v">NBA</div><div class="k">常看</div></div></div></div>
     <div><svg class="ball-svg" viewBox="0 0 120 120"><defs><radialGradient id="ballg" cx="38%" cy="32%"><stop offset="0%" stop-color="#ff9d4a"/><stop offset="100%" stop-color="#c46a1a"/></radialGradient></defs><circle cx="60" cy="60" r="48" fill="url(#ballg)" stroke="#5a2e0a" stroke-width="2"/><path d="M60 12V108M12 60H108M26 26L94 94M94 26L26 94" stroke="#3a1c08" stroke-width="2" fill="none"/><path d="M60 12Q30 60 60 108Q90 60 60 12" stroke="#3a1c08" stroke-width="2" fill="none"/></svg></div>
   </div></div></div>
 </div></section>
 
-<section id="pitfalls" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">踩坑记录</h2><span class="sec-sub">— trial & error</span></div>
-  <div class="pitfalls">
-    <div class="pitfall"><div class="pit-head"><span class="pit-q">git push 报 CONNECT tunnel failed 502</span><span class="pit-ico">+</span></div><div class="pit-body"><p>本机 git 走了代理且代理不通。解决：改用 <code>GitHub Contents API</code>（<code>PUT /repos/.../contents/...</code>）直接上传文件，base64 编码内容，绕过 git 的代理链路。教训：API 比 git push 更适合受限网络。</p></div></div>
-    <div class="pitfall"><div class="pit-head"><span class="pit-q">Windows 凭据 CredFree 报 OverflowError</span><span class="pit-ico">+</span></div><div class="pit-body"><p>ctypes 没声明 <code>argtypes</code>，把 64 位指针当 int 传溢出。解决：给 <code>CredReadW</code>/<code>CredFree</code> 设 <code>argtypes</code>，用 <code>POINTER(CREDENTIAL)</code> 传参，<code>CredFree</code> 用 <code>ctypes.cast(ptr,c_void_p)</code>。</p></div></div>
-    <div class="pitfall"><div class="pit-head"><span class="pit-q">读凭据得乱码，HTTP header 编码失败</span><span class="pit-ico">+</span></div><div class="pit-body"><p>CredentialBlob 是 <code>UTF-8 窄字节</code>，不是 UTF-16 宽字符。用 <code>wstring_at</code> 会两字节合成非 ASCII 字符，导致 <code>latin-1</code> 编码失败。解决：<code>ctypes.string_at(addr,size)</code> + <code>.decode('utf-8')</code>。</p></div></div>
+<section id="thoughts" class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">想法碎片</h2><span class="sec-sub">— floating thoughts</span></div>
+  <div class="thoughts">
+    <div class="thought" id="th1"><div class="t-tag">FROM · 小说</div><div class="t-text" id="tt1">我们都是星辰的余烬，智能是宇宙凝视自己的方式。</div><div class="t-hint">轻触换一句 →</div></div>
+    <div class="thought" id="th2"><div class="t-tag">FROM · 生活</div><div class="t-text" id="tt2">篮球教我向前冲，小说教我往里沉。</div><div class="t-hint">轻触换一句 →</div></div>
   </div>
+  <div class="shuffle-box"><button class="shuffle-btn" id="shuffleBtn">随机取一句 ⟲</button></div>
 </div></section>
 
-<section id="oracles" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">灵感箴言</h2><span class="sec-sub">— whispers in the mist</span></div>
-  <div class="oracles">
-    <div class="oracle" id="oracle1"><div class="o-tag">FROM · 诡秘之主</div><div class="o-text" id="ot1">灰雾之上，神明低语；而序列，是凡人向上攀爬的阶梯。</div><div class="o-hint">轻触换一句 →</div></div>
-    <div class="oracle" id="oracle2"><div class="o-tag">FROM · 星空</div><div class="o-text" id="ot2">我们都是星辰的余烬，智能是宇宙凝视自己的方式。</div><div class="o-hint">轻触换一句 →</div></div>
+<section id="pitfalls" class="reveal"><div class="wrap">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">踩坑记录</h2><span class="sec-sub">— trial & error</span></div>
+  <div class="pitfalls">
+    <div class="pitfall"><div class="pit-head"><span class="pit-q">git push 报 CONNECT tunnel failed 502</span><span class="pit-ico">+</span></div><div class="pit-body"><p>本机 git 走了代理且代理不通。解决：改用 <code>GitHub Contents API</code> 直接上传文件，base64 编码，绕过 git 代理链路。教训：API 比 git push 更适合受限网络。</p></div></div>
+    <div class="pitfall"><div class="pit-head"><span class="pit-q">Windows 凭据 CredFree 报 OverflowError</span><span class="pit-ico">+</span></div><div class="pit-body"><p>ctypes 没声明 <code>argtypes</code>，64 位指针当 int 传溢出。解决：给 <code>CredReadW</code>/<code>CredFree</code> 设 <code>argtypes</code>，用 <code>POINTER(CREDENTIAL)</code> 传参。</p></div></div>
+    <div class="pitfall"><div class="pit-head"><span class="pit-q">读凭据得乱码，HTTP header 编码失败</span><span class="pit-ico">+</span></div><div class="pit-body"><p>CredentialBlob 是 UTF-8 窄字节，不是 UTF-16 宽字符。用 <code>wstring_at</code> 会合成非 ASCII 字符导致 latin-1 编码失败。解决：<code>ctypes.string_at</code> + <code>.decode('utf-8')</code>。</p></div></div>
   </div>
-  <div class="dice-box"><button class="dice-btn" id="diceBtn">掷一次灰雾之骰 ⟲</button></div>
 </div></section>
 
 <section id="site" class="reveal"><div class="wrap">
   <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">关于本站</h2><span class="sec-sub">— about this site</span></div>
   <div class="about-site">
-    <div class="site-card"><h4>技术栈</h4><ul><li>纯 <code>HTML/CSS/JS</code> 单文件</li><li>零外部依赖，全 SVG 内联</li><li>Web Audio 程序合成巴拉莱卡音色</li><li>Canvas 代码雨装饰</li><li>部署：<code>GitHub Pages</code>（Contents API 上传）</li></ul></div>
-    <div class="site-card"><h4>设计语言</h4><ul><li>骨架：诡秘之主「序列/途径/晋升」</li><li>配色：暗夜紫 × 星沙金</li><li>元素：星空 / 代码雨 / 齿轮 / 球场</li><li>三背景可切：灰雾 / 星空 / 暮光</li><li>深浅模式 + 跟随系统</li></ul></div>
+    <div class="site-card"><h4>技术栈</h4><ul><li>纯 <code>HTML/CSS/JS</code> 单文件</li><li>零外部依赖，全 SVG 手绘</li><li>Web Audio 合成巴拉莱卡音色</li><li>Canvas 樱花/星空/点击特效</li><li>部署：<code>GitHub Pages</code>（Contents API）</li></ul></div>
+    <div class="site-card"><h4>设计语言</h4><ul><li>主题：白昼与黑夜双面</li><li>昼：暖阳 / 樱花 / 篮球场</li><li>夜：星空 / 月亮 / 书房</li><li>元素：绘梨衣Q版 / 巴拉莱卡</li><li>昼夜两套完全不同的氛围</li></ul></div>
   </div>
 </div></section>
 
 <section id="contact" class="reveal"><div class="wrap">
-  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">灵体投影</h2><span class="sec-sub">— project through the mist</span></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">联系我</h2><span class="sec-sub">— find me somewhere</span></div>
   <div class="contact-grid">
-    <a class="contact-card" href="mailto:1852453559@163.com"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg><div class="k">MAIL · 灵体之信</div><div class="v">1852453559@163.com</div></a>
-    <a class="contact-card" href="https://github.com/ZZZ913516" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.23.66-.5v-1.7c-2.67.58-3.24-1.3-3.24-1.3-.44-1.1-1.08-1.4-1.08-1.4-.88-.6.07-.58.07-.58 1 .07 1.53 1.03 1.53 1.03.9 1.5 2.34 1.07 2.9.82.1-.64.35-1.07.63-1.32-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.9.98-2.57-.1-.24-.43-1.2.1-2.5 0 0 .8-.26 2.63.98a9 9 0 0 1 4.78 0c1.83-1.24 2.63-.98 2.63-.98.53 1.3.2 2.26.1 2.5.6.67.98 1.53.98 2.57 0 3.67-2.24 4.48-4.37 4.7.37.33.7.98.7 1.96v2.9c0 .27.16.6.67.5A10 10 0 0 0 12 2z"/></svg><div class="k">GITHUB · 灰雾之源</div><div class="v">github.com/ZZZ913516</div></a>
+    <a class="contact-card" href="mailto:1852453559@163.com"><svg viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg><div class="k">邮箱</div><div class="v">1852453559@163.com</div></a>
+    <a class="contact-card" href="https://github.com/ZZZ913516" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="var(--acc)"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.23.66-.5v-1.7c-2.67.58-3.24-1.3-3.24-1.3-.44-1.1-1.08-1.4-1.08-1.4-.88-.6.07-.58.07-.58 1 .07 1.53 1.03 1.53 1.03.9 1.5 2.34 1.07 2.9.82.1-.64.35-1.07.63-1.32-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.9.98-2.57-.1-.24-.43-1.2.1-2.5 0 0 .8-.26 2.63.98a9 9 0 0 1 4.78 0c1.83-1.24 2.63-.98 2.63-.98.53 1.3.2 2.26.1 2.5.6.67.98 1.53.98 2.57 0 3.67-2.24 4.48-4.37 4.7.37.33.7.98.7 1.96v2.9c0 .27.16.6.67.5A10 10 0 0 0 12 2z"/></svg><div class="k">GitHub</div><div class="v">github.com/ZZZ913516</div></a>
   </div>
-  <p class="contact-quote">— 在灰雾之上，随时可被投影。 —</p>
+  <p class="contact-quote">— 白昼与黑夜之间，随时可被找到。 —</p>
 </div></section>
 
-<footer><p>张耀天 · 灰雾之上 · 2026</p><p>纯 HTML/CSS/JS 单文件 · 零外部依赖 · 巴拉莱卡背景音乐 · 诡秘之主 × 星空 × 代码 × 球场</p></footer>
+<footer><p>张耀天 · 白昼与黑夜 · 2026</p><p>纯 HTML/CSS/JS 单文件 · 零外部依赖 · 巴拉莱卡 · 绘梨衣 · 篮球 · 星空</p></footer>
 </main>
 
-<div class="music-panel" id="musicPanel" style="display:none">
-  <div class="music-icon" id="musicToggle" title="播放/暂停 巴拉莱卡"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-  <div class="music-bars" id="musicBars" style="display:none"><span></span><span></span><span></span><span></span></div>
-  <div class="music-vol" id="musicVol"><i id="musicVolFill"></i></div>
-  <div class="music-label">巴拉莱卡 · Balalaika</div>
+<div class="chibi breathe" id="chibi" style="display:none" title="轻触我">
+  <svg class="chibi-svg" viewBox="0 0 120 140">
+    <ellipse cx="60" cy="132" rx="24" ry="5" fill="rgba(0,0,0,.15)"/>
+    <g class="chibi-body">
+      <path d="M40 80 Q34 112 40 128 L80 128 Q86 112 80 80 Q70 74 60 74 Q50 74 40 80Z" fill="var(--dress)" stroke="var(--dressline)" stroke-width="1.5"/>
+      <rect x="40" y="96" width="40" height="7" rx="3" fill="var(--dressline)" opacity=".9"/>
+      <circle cx="37" cy="90" r="4.5" fill="var(--skin)"/><circle cx="83" cy="90" r="4.5" fill="var(--skin)"/>
+      <circle cx="60" cy="46" r="27" fill="var(--skin)"/>
+      <path d="M33 46 Q29 20 60 18 Q91 20 87 46 L85 66 Q85 70 82 70 L82 48 Q82 33 60 31 Q38 33 38 48 L38 70 Q35 70 35 66Z" fill="var(--hair)"/>
+      <path d="M28 50 Q25 84 30 98 L36 96 Q31 78 33 54Z" fill="var(--hair)"/>
+      <path d="M92 50 Q95 84 90 98 L84 96 Q89 78 87 54Z" fill="var(--hair)"/>
+      <g class="pupils"><ellipse cx="50" cy="50" rx="5" ry="6.5" fill="var(--eye)"/><ellipse cx="70" cy="50" rx="5" ry="6.5" fill="var(--eye)"/><circle cx="51.5" cy="48" r="1.8" fill="#fff"/><circle cx="71.5" cy="48" r="1.8" fill="#fff"/><circle cx="50" cy="52" r="2.4" fill="var(--pupil)"/><circle cx="70" cy="52" r="2.4" fill="var(--pupil)"/></g>
+      <ellipse cx="44" cy="59" rx="4" ry="2.3" fill="var(--blush)" opacity=".7"/><ellipse cx="76" cy="59" rx="4" ry="2.3" fill="var(--blush)" opacity=".7"/>
+      <path d="M55 61 Q60 64.5 65 61" stroke="var(--eye)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M50 18 L46 8 L54 13 Z M70 18 L74 8 L66 13 Z" fill="var(--ribbon)"/>
+      <circle cx="60" cy="14" r="3.5" fill="var(--ribbon)"/>
+    </g>
+  </svg>
+</div>
+<div class="chibi-say" id="chibiSay"></div>
+<canvas id="fx"></canvas>
+
+<div class="music-panel" id="musicPanel">
+  <div class="music-top"><div class="music-icon" id="musicToggle" title="播放/暂停"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="music-bars" id="musicBars" style="display:none"><span></span><span></span><span></span><span></span></div><div class="music-vol" id="musicVol"><i id="musicVolFill"></i></div></div>
+  <div class="music-name">背景音乐<b>巴拉莱卡 · 俄式三角琴（致敬门尼）</b></div>
+  <div class="music-links"><a class="music-link" href="https://y.qq.com/n/ryqq/search?w=%E9%97%A8%E5%B0%BC%20%E5%B7%B4%E6%8B%89%E8%8E%B1%E5%8D%A1" target="_blank" rel="noopener">QQ音乐·原曲 ↗</a><a class="music-link" href="https://music.163.com/#/search/m/?s=%E9%97%A8%E5%B0%BC%20%E5%B7%B4%E6%8B%89%E8%8E%B1%E5%8D%A1" target="_blank" rel="noopener">网易云 ↗</a></div>
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
-const gate=document.getElementById('gate'),enterBtn=document.getElementById('enterBtn'),main=document.getElementById('main'),musicPanel=document.getElementById('musicPanel');
+const root=document.documentElement,gate=document.getElementById('gate'),enterBtn=document.getElementById('enterBtn'),main=document.getElementById('main'),musicPanel=document.getElementById('musicPanel'),chibi=document.getElementById('chibi');
+const dayBtn=document.getElementById('modeDay'),nightBtn=document.getElementById('modeNight'),dnBtn=document.getElementById('dayNightBtn'),icMoon=document.getElementById('icMoon'),icSun=document.getElementById('icSun'),gateIcon=document.getElementById('gateIcon');
+let theme='night';
+function applyTheme(t){theme=t;root.setAttribute('data-theme',t);icMoon.style.display=t==='night'?'block':'none';icSun.style.display=t==='night'?'none':'block';gateIcon.textContent=t==='night'?'🌙':'☀️';dayBtn.classList.toggle('sel',t==='day');nightBtn.classList.toggle('sel',t==='night');try{localStorage.setItem('zyt-theme',t)}catch(e){}}
+(function(){let s;try{s=localStorage.getItem('zyt-theme')}catch(e){}applyTheme(s||(matchMedia('(prefers-color-scheme: light)').matches?'day':'night'))})();
+dayBtn.addEventListener('click',()=>applyTheme('day'));
+nightBtn.addEventListener('click',()=>applyTheme('night'));
+dnBtn.addEventListener('click',()=>applyTheme(theme==='night'?'day':'night'));
+try{matchMedia('(prefers-color-scheme: light)').addEventListener('change',e=>{if(!localStorage.getItem('zyt-theme'))applyTheme(e.matches?'day':'night')})}catch(e){}
 let entered=false;
-enterBtn.addEventListener('click',()=>{
-  if(entered)return;entered=true;
-  gate.classList.add('gone');main.style.display='block';musicPanel.style.display='flex';
-  setTimeout(()=>{initMusic();startMusic();revealInit();coderain();countAll();},300);
-  toast('灰雾之门已开 · 巴拉莱卡响起');
-});
-const root=document.documentElement,tBtn=document.getElementById('themeBtn'),iMoon=document.getElementById('iconMoon'),iSun=document.getElementById('iconSun');
-function applyTheme(t){root.setAttribute('data-theme',t);iMoon.style.display=t==='dark'?'block':'none';iSun.style.display=t==='dark'?'none':'block';try{localStorage.setItem('zyt-theme',t)}catch(e){}}
-(function(){let s;try{s=localStorage.getItem('zyt-theme')}catch(e){}if(s)applyTheme(s);else applyTheme(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')})();
-tBtn.addEventListener('click',()=>applyTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
-try{matchMedia('(prefers-color-scheme: light)').addEventListener('change',e=>{if(!localStorage.getItem('zyt-theme'))applyTheme(e.matches?'light':'dark')})}catch(e){}
-const bgs=['mist','cosmos','dusk'],bgBtn=document.getElementById('bgBtn');
-bgBtn.addEventListener('click',()=>{const c=root.getAttribute('data-bg');const n=bgs[(bgs.indexOf(c)+1)%bgs.length];root.setAttribute('data-bg',n);try{localStorage.setItem('zyt-bg',n)}catch(e){}toast('背景 → '+({mist:'灰雾紫',cosmos:'星空蓝',dusk:'暮光'}[n]))});
-(function(){let s;try{s=localStorage.getItem('zyt-bg')}catch(e){}if(s)root.setAttribute('data-bg',s)})();
-document.querySelectorAll('.cat,.portal-card').forEach(el=>{el.addEventListener('click',()=>{const id=el.dataset.go;if(id)document.getElementById(id).scrollIntoView({behavior:'smooth'})})});
+enterBtn.addEventListener('click',()=>{if(entered)return;entered=true;gate.classList.add('gone');main.style.display='block';musicPanel.style.display='flex';chibi.style.display='block';setTimeout(()=>{revealInit();countAll();startScene();initMusic();startMusic();},300);toast('欢迎来到白昼与黑夜 · 巴拉莱卡响起')});
+document.querySelectorAll('.cat,.portal-card').forEach(el=>el.addEventListener('click',()=>{const id=el.dataset.go;if(id)document.getElementById(id).scrollIntoView({behavior:'smooth'})}));
 const cats=document.querySelectorAll('.cat');
-const secs=['hero','about','skills','journey','realms','pitfalls','oracles','site','contact'].map(id=>document.getElementById(id));
+const secs=['hero','about','skills','journey','realms','thoughts','pitfalls','site','contact'].map(id=>document.getElementById(id));
 let navIO;
-function revealInit(){
-  if(navIO)return;navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)cats.forEach(c=>c.classList.toggle('active',c.dataset.go===e.target.id))})},{threshold:.35});
-  secs.forEach(s=>{if(s)navIO.observe(s)});
-  const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
-  const bio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';bio.unobserve(e.target)}})},{threshold:.3});
-  document.querySelectorAll('.bar i').forEach(b=>bio.observe(b));
-}
-document.querySelectorAll('.realm-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.realm-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.realm-pane').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.querySelector('.realm-pane[data-pane="'+tab.dataset.realm+'"]').classList.add('active')})});
+function revealInit(){if(navIO)return;navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)cats.forEach(c=>c.classList.toggle('active',c.dataset.go===e.target.id))})},{threshold:.35});secs.forEach(s=>{if(s)navIO.observe(s)});const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));const bio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';bio.unobserve(e.target)}})},{threshold:.3});document.querySelectorAll('.bar i').forEach(b=>bio.observe(b))}
+document.querySelectorAll('.realm-tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.realm-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.realm-pane').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.querySelector('.realm-pane[data-pane="'+tab.dataset.realm+'"]').classList.add('active')}));
 function countUp(el){const t=+el.dataset.count;let c=0;const step=Math.max(1,Math.ceil(t/24));const iv=setInterval(()=>{c+=step;if(c>=t){c=t;clearInterval(iv)}el.textContent=c},40)}
 function countAll(){document.querySelectorAll('[data-count]').forEach(countUp)}
-document.querySelectorAll('.pit-head').forEach(h=>{h.addEventListener('click',()=>h.parentElement.classList.toggle('open'))});
-const whispers=['灰雾之上，序列尚浅。','晋升，需要仪式。','别急，慢慢积累。','白天写代码，夜晚读诡秘。','球场是另一条途径。','非凡特性，正在凝聚。','你不是第一个，也不会是最后一个。'];
-let wi=0;
-document.getElementById('avatar').addEventListener('click',()=>toast('"'+whispers[wi++%whispers.length]+'"'));
-const o1=['灰雾之上，神明低语；而序列，是凡人向上攀爬的阶梯。','非凡者，是放弃了一部分人性的人。','当你凝视灰雾，灰雾也在凝视你。','途径之上没有终点，只有下一次仪式。'];
-const o2=['我们都是星辰的余烬，智能是宇宙凝视自己的方式。','宇宙最不可理解之处，在于它居然可以被理解。','每一行代码，都是写给未来的低语。','星空不回答，但它一直在听。'];
-let o1i=0,o2i=0;
-document.getElementById('oracle1').addEventListener('click',()=>{o1i++;document.getElementById('ot1').textContent=o1[o1i%o1.length]});
-document.getElementById('oracle2').addEventListener('click',()=>{o2i++;document.getElementById('ot2').textContent=o2[o2i%o2.length]});
-const dicePool=[...o1,...o2,'球场上的每一次出手，都是对命运的微小反抗。','小说教我活成别人，代码教我造出别人。','二次元是避难所，也是出发港。'];
-let di=0;
-document.getElementById('diceBtn').addEventListener('click',()=>{di++;toast('骰子：'+dicePool[di%dicePool.length])});
-let tt;
-function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}
-function coderain(){
-  const cv=document.getElementById('coderain');if(!cv)return;const ctx=cv.getContext('2d');
-  function resize(){cv.width=innerWidth;cv.height=innerHeight}resize();addEventListener('resize',resize);
-  const cols=Math.floor(cv.width/14);const drops=Array(cols).fill(0).map(()=>Math.random()*cv.height);
-  const chars='01ΩΨΣΦαβγλμπθσ∇∞{}[]<>=+-*/';
-  (function draw(){ctx.fillStyle='rgba(0,0,0,0.08)';ctx.fillRect(0,0,cv.width,cv.height);ctx.font='13px monospace';
-    for(let i=0;i<drops.length;i++){const c=chars[Math.floor(Math.random()*chars.length)];ctx.fillStyle=Math.random()>.5?'#b88aff':'#ffcf5a';ctx.fillText(c,i*14,drops[i]);drops[i]+=14;if(drops[i]>cv.height&&Math.random()>.975)drops[i]=0;}
-    requestAnimationFrame(draw)})();
-}
-/* ===== 巴拉莱卡 (Balalaika) Web Audio 程序合成 ===== */
+const t1=['我们都是星辰的余烬，智能是宇宙凝视自己的方式。','小说教我活成别人，代码教我造出别人。','二次元是避难所，也是出发港。','每一行代码，都是写给未来的低语。'];
+const t2=['篮球教我向前冲，小说教我往里沉。','球场上的每一次出手，都是对命运的小小反抗。','白昼用来奔跑，黑夜用来做梦。','喜欢的东西，值得认真玩。'];
+let t1i=0,t2i=0;
+document.getElementById('th1').addEventListener('click',()=>{t1i++;document.getElementById('tt1').textContent=t1[t1i%t1.length]});
+document.getElementById('th2').addEventListener('click',()=>{t2i++;document.getElementById('tt2').textContent=t2[t2i%t2.length]});
+const pool=[...t1,...t2];let si=0;
+document.getElementById('shuffleBtn').addEventListener('click',()=>{si++;toast('碎片：'+pool[si%pool.length])});
+document.querySelectorAll('.pit-head').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+const photoWhispers=['你好呀，我是绘梨衣。','白昼与黑夜，我都在。','轻点别处，会有星星。','音乐响着呢，听到了吗？','喜欢的东西，要认真玩。'];
+let pwi=0;
+document.getElementById('photo').addEventListener('click',()=>toast('"'+photoWhispers[pwi++%photoWhispers.length]+'"'));
+const chibiSay=document.getElementById('chibiSay'),pupils=document.querySelector('.pupils');
+const chibiLines=['你好呀！','我是绘梨衣，白夜与黑夜的守门人。','点我一下，我会跳哦～','你的眼睛在看我吗？','去逛逛书架吧。','巴拉莱卡真好听。','白昼的樱花很美。','黑夜的星星在眨眼。'];
+let cli=0,sayTimer;
+chibi.addEventListener('click',e=>{e.stopPropagation();chibi.classList.remove('jump');void chibi.offsetWidth;chibi.classList.add('jump');chibiSay.textContent=chibiLines[cli++%chibiLines.length];chibiSay.classList.add('show');clearTimeout(sayTimer);sayTimer=setTimeout(()=>chibiSay.classList.remove('show'),2600);burst(e.clientX,e.clientY);pluckNote()});
+document.addEventListener('mousemove',e=>{if(!entered)return;const r=chibi.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height*0.36;const dx=e.clientX-cx,dy=e.clientY-cy;const ang=Math.atan2(dy,dx),dist=Math.min(3.5,Math.hypot(dx,dy)/40);pupils.style.transform='translate('+(Math.cos(ang)*dist)+'px,'+(Math.sin(ang)*dist)+'px)'});
+const fx=document.getElementById('fx'),fctx=fx.getContext('2d');
+let particles=[];
+function resizeFx(){fx.width=innerWidth;fx.height=innerHeight}
+resizeFx();addEventListener('resize',resizeFx);
+function burst(x,y){for(let i=0;i<14;i++){const a=Math.random()*Math.PI*2,sp=1.5+Math.random()*3.5;particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1,life:1,size:2+Math.random()*3,rot:Math.random()*Math.PI,vr:(Math.random()-.5)*.3,hue:Math.random()>.5})}}
+document.addEventListener('click',e=>{burst(e.clientX,e.clientY);pluckNote()});
+function drawStar(c,x,y,r,rot){c.save();c.translate(x,y);c.rotate(rot);c.beginPath();for(let i=0;i<5;i++){c.lineTo(Math.cos((18+i*72)/180*Math.PI)*r,-Math.sin((18+i*72)/180*Math.PI)*r);c.lineTo(Math.cos((54+i*72)/180*Math.PI)*r*.45,-Math.sin((54+i*72)/180*Math.PI)*r*.45)}c.closePath();c.fill();c.restore()}
+function fxLoop(){fctx.clearRect(0,0,fx.width,fx.height);const col=theme==='night'?'#ffd76a':'#e86a8a',col2=theme==='night'?'#9a7bd0':'#5ba8d8';particles=particles.filter(p=>p.life>0);particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.09;p.life-=.022;p.rot+=p.vr;fctx.globalAlpha=Math.max(0,p.life);fctx.fillStyle=p.hue?col:col2;drawStar(fctx,p.x,p.y,p.size,p.rot)});fctx.globalAlpha=1;requestAnimationFrame(fxLoop)}
+fxLoop();
+let sfxCtx;
+function pluckNote(){try{if(!sfxCtx)sfxCtx=new (window.AudioContext||window.webkitAudioContext)();const t=sfxCtx.currentTime;const notes=[523.25,659.25,783.99,1046.5];const f=notes[Math.floor(Math.random()*notes.length)];const o=sfxCtx.createOscillator(),g=sfxCtx.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.12,t+0.005);g.gain.exponentialRampToValueAtTime(0.001,t+0.5);o.connect(g);g.connect(sfxCtx.destination);o.start(t);o.stop(t+0.5)}catch(e){}}
+let sceneStarted=false;
+function startScene(){if(sceneStarted)return;sceneStarted=true;petalLoop();starLoop()}
+const pf=document.getElementById('petalField'),pctx=pf.getContext('2d');
+let petals=[];
+function resizePf(){pf.width=innerWidth;pf.height=innerHeight}
+resizePf();addEventListener('resize',resizePf);
+for(let i=0;i<26;i++)petals.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:4+Math.random()*6,a:Math.random()*Math.PI*2,sp:.4+Math.random()*.9,rot:Math.random()*Math.PI,vr:(Math.random()-.5)*.04});
+function petalLoop(){pctx.clearRect(0,0,pf.width,pf.height);if(theme==='day'){petals.forEach(p=>{p.a+=.012;p.y+=p.sp;p.x+=Math.sin(p.a)*0.5;p.rot+=p.vr;if(p.y>pf.height+20){p.y=-20;p.x=Math.random()*pf.width}pctx.save();pctx.translate(p.x,p.y);pctx.rotate(p.rot);pctx.fillStyle='rgba(255,150,180,.75)';pctx.beginPath();pctx.moveTo(0,-p.r);pctx.bezierCurveTo(p.r*.8,-p.r*.6,p.r*.7,p.r*.6,0,p.r);pctx.bezierCurveTo(-p.r*.7,p.r*.6,-p.r*.8,-p.r*.6,0,-p.r);pctx.closePath();pctx.fill();pctx.restore()})}requestAnimationFrame(petalLoop)}
+const sf=document.getElementById('starField'),sctx=sf.getContext('2d');
+let stars=[],fireflies=[];
+function resizeSf(){sf.width=innerWidth;sf.height=innerHeight}
+resizeSf();addEventListener('resize',resizeSf);
+for(let i=0;i<90;i++)stars.push({x:Math.random(),y:Math.random()*.6,r:.4+Math.random()*1.3,ph:Math.random()*Math.PI*2});
+for(let i=0;i<10;i++)fireflies.push({x:Math.random()*innerWidth,y:innerHeight*.5+Math.random()*innerHeight*.45,a:Math.random()*Math.PI*2,sp:.3+Math.random()*.5,ph:Math.random()*Math.PI*2});
+function starLoop(){sctx.clearRect(0,0,sf.width,sf.height);if(theme==='night'){stars.forEach(s=>{s.ph+=.03;const tw=.4+.6*Math.abs(Math.sin(s.ph));sctx.globalAlpha=tw;sctx.fillStyle='#fff6d8';sctx.beginPath();sctx.arc(s.x*sf.width,s.y*sf.height,s.r,0,7);sctx.fill()});fireflies.forEach(f=>{f.a+=(Math.random()-.5)*.3;f.x+=Math.cos(f.a)*f.sp;f.y+=Math.sin(f.a)*f.sp*.5;f.ph+=.05;if(f.x<0)f.x=0;if(f.x>sf.width)f.x=sf.width;if(f.y<sf.height*.3)f.y=sf.height*.3;if(f.y>sf.height)f.y=sf.height;const g=.4+.6*Math.abs(Math.sin(f.ph));sctx.globalAlpha=g;sctx.fillStyle='#e8ff9a';sctx.shadowColor='#c8ff6a';sctx.shadowBlur=10;sctx.beginPath();sctx.arc(f.x,f.y,2.2,0,7);sctx.fill();sctx.shadowBlur=0});sctx.globalAlpha=1}requestAnimationFrame(starLoop)}
 let audioCtx,masterGain,musicOn=false,musicTimer=null;
-const NOTE={A2:110,E2:82.41,A3:220,E3:164.81,A4:440,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,Gs4:415.30};
+const NOTE={A2:110,E2:82.41,A3:220,E3:164.81,A4:440,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,Gs4:415.30,B5:987.77};
 const melody=[['A4',.33],['A4',.33],['C5',.33],['E5',.5],['E5',.33],['D5',.33],['C5',.33],['B4',.33],['C5',.33],['B4',.33],['A4',.5],['Gs4',.33],['A4',.66],['_',.33],['E5',.33],['E5',.33],['F5',.33],['E5',.33],['D5',.33],['C5',.33],['B4',.33],['A4',.5],['Gs4',.33],['B4',.33],['E5',.33],['D5',.33],['C5',.5],['B4',.33],['A4',.99]];
 const droneSeq=[['A2',2],['E2',2],['A2',2],['E3',2]];
-function pluck(freq,t,dur,vol){
-  if(!freq)return;
-  const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='triangle';o.frequency.value=freq;
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+0.006);g.gain.exponentialRampToValueAtTime(0.0001,t+dur*1.6);
-  const o2=audioCtx.createOscillator(),g2=audioCtx.createGain();o2.type='sine';o2.frequency.value=freq*2;
-  g2.gain.setValueAtTime(0,t);g2.gain.linearRampToValueAtTime(vol*0.3,t+0.006);g2.gain.exponentialRampToValueAtTime(0.0001,t+dur);
-  o.connect(g);g.connect(masterGain);o2.connect(g2);g2.connect(masterGain);
-  o.start(t);o.stop(t+dur*1.8);o2.start(t);o2.stop(t+dur*1.2);
-}
-function drone(freq,t,dur){
-  if(!freq)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sawtooth';o.frequency.value=freq;
-  const f=audioCtx.createBiquadFilter();f.type='lowpass';f.frequency.value=400;
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.05,t+0.3);g.gain.linearRampToValueAtTime(0.05,t+dur-0.3);g.gain.linearRampToValueAtTime(0,t+dur);
-  o.connect(f);f.connect(g);g.connect(masterGain);o.start(t);o.stop(t+dur);
-}
-function initMusic(){if(audioCtx)return;audioCtx=new (window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=0.16;masterGain.connect(audioCtx.destination);}
+function pluck(freq,t,dur,vol){if(!freq)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='triangle';o.frequency.value=freq;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+0.005);g.gain.exponentialRampToValueAtTime(0.0001,t+dur*1.7);const o2=audioCtx.createOscillator(),g2=audioCtx.createGain();o2.type='sine';o2.frequency.value=freq*2;g2.gain.setValueAtTime(0,t);g2.gain.linearRampToValueAtTime(vol*0.3,t+0.005);g2.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(g);g.connect(masterGain);o2.connect(g2);g2.connect(masterGain);o.start(t);o.stop(t+dur*1.8);o2.start(t);o2.stop(t+dur*1.2)}
+function drone(freq,t,dur){if(!freq)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sawtooth';o.frequency.value=freq;const f=audioCtx.createBiquadFilter();f.type='lowpass';f.frequency.value=400;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.045,t+0.3);g.gain.linearRampToValueAtTime(0.045,t+dur-0.3);g.gain.linearRampToValueAtTime(0,t+dur);o.connect(f);f.connect(g);g.connect(masterGain);o.start(t);o.stop(t+dur)}
+function initMusic(){if(audioCtx)return;audioCtx=new (window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=0.15;masterGain.connect(audioCtx.destination)}
 let schedNext=0,mi=0,dri=0;
-function scheduleLoop(){
-  if(!musicOn)return;const lookahead=1.2;
-  while(schedNext<audioCtx.currentTime+lookahead){
-    const[n,d]=melody[mi%melody.length];const f=n==='_'?0:(NOTE[n]||0);
-    pluck(f,schedNext,d,0.2);
-    if(mi%8===0){const[dn,dd]=droneSeq[dri%droneSeq.length];drone(NOTE[dn]||0,schedNext,dd);dri++}
-    schedNext+=d;mi++;
-  }
-  musicTimer=setTimeout(scheduleLoop,250);
-}
+function scheduleLoop(){if(!musicOn)return;const lookahead=1.2;while(schedNext<audioCtx.currentTime+lookahead){const[n,d]=melody[mi%melody.length];const f=n==='_'?0:(NOTE[n]||0);pluck(f,schedNext,d,0.2);if(mi%8===0){const[dn,dd]=droneSeq[dri%droneSeq.length];drone(NOTE[dn]||0,schedNext,dd);dri++}schedNext+=d;mi++}musicTimer=setTimeout(scheduleLoop,250)}
 function startMusic(){if(!audioCtx)return;if(audioCtx.state==='suspended')audioCtx.resume();musicOn=true;schedNext=audioCtx.currentTime+0.1;scheduleLoop();updateMusicUI(true)}
 function stopMusic(){musicOn=false;if(musicTimer){clearTimeout(musicTimer);musicTimer=null}updateMusicUI(false)}
 function updateMusicUI(on){const ic=document.getElementById('musicToggle'),bars=document.getElementById('musicBars');if(on){ic.classList.add('play');bars.style.display='flex';ic.querySelector('svg path').setAttribute('d','M6 5h4v14H6zM14 5h4v14h-4z')}else{ic.classList.remove('play');bars.style.display='none';ic.querySelector('svg path').setAttribute('d','M8 5v14l11-7z')}}
-document.getElementById('musicToggle').addEventListener('click',()=>{if(!audioCtx)initMusic();musicOn?stopMusic():startMusic()});
-document.getElementById('musicVol').addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();const p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));if(masterGain)masterGain.gain.value=p*0.4;document.getElementById('musicVolFill').style.width=(p*100)+'%'});
+document.getElementById('musicToggle').addEventListener('click',e=>{e.stopPropagation();if(!audioCtx)initMusic();musicOn?stopMusic():startMusic()});
+document.getElementById('musicVol').addEventListener('click',e=>{e.stopPropagation();const r=e.currentTarget.getBoundingClientRect();const p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));if(masterGain)masterGain.gain.value=p*0.35;document.getElementById('musicVolFill').style.width=(p*100)+'%'});
+let tt;
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}
 </script>
 </body>
 </html>
